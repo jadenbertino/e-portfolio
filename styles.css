@@ -5,7 +5,83 @@ background:
 rgb(245, 245, 245)
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Roboto', sans-serif;
+  color: #242424;
+  font-size: 16px;
+}
 
 body {
   background-color: rgb(245, 245, 245);
+  max-width: 100vw;
+  overflow-x: hidden; /* disable horizontal scroll */
+}
+
+img {
+  width: 100%;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+
+/*
+
+NAV
+
+*/
+
+nav {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100px;
+
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__links--list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.nav__links--list-item {
+  margin: 0 12px;
+}
+
+
+/*
+
+HEADER
+
+*/
+
+header {
+  height: calc(100vh - 100px);
 }
