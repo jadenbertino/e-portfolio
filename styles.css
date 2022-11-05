@@ -50,6 +50,16 @@ span {
   font-weight: bold;
 }
 
+.container {
+  padding: 50px 0;
+}
+
+.row {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 /*
 
 NAV
@@ -138,4 +148,15 @@ header {
 
 .social__icon {
   color: white;
+}
+
+
+/*
+
+PROJECTS
+
+*/
+
+.project {
+  margin-bottom: 135px;
 }
