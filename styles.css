@@ -188,17 +188,15 @@ PROJECTS
   position: relative;
 }
 
-/*
+
 .project__img {
-
+  width: 130%;
+  padding-top: 20px;
+  background-color: white;
 }
-*/
 
-.project__img--treact {
-    width: 130%;
-    padding-top: 20px;
-    background-color: white;
-    /* z-index: -1; */
+.project__img--ecom {
+  width: 100%;
 }
 
 .project__overlay,
