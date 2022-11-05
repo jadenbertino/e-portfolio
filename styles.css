@@ -39,8 +39,13 @@ button {
 
 span {
   font-size: inherit;
-
 }
+
+/*
+
+RE-USABLES
+
+*/
 
 .orange {
   color: #F06449;
@@ -58,6 +63,14 @@ span {
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 12px;
+}
+
+.section__title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 /*
@@ -159,4 +172,60 @@ PROJECTS
 
 .project {
   margin-bottom: 135px;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 609.25px;
+  box-shadow:
+    0 /* horizontal offset */
+    20px /* vertical offset */
+    80px /* blur radius offset */
+    0 /* shadow size - 0 means same as box */
+    rgb(0, 0, 0, 0.45); /* shadow color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  position: relative;
+}
+
+/*
+.project__img {
+
+}
+*/
+
+.project__img--treact {
+    width: 130%;
+    padding-top: 20px;
+    background-color: white;
+    z-index: -1;
+}
+
+.project__overlay,
+.project__img {
+  transition: all 500ms ease;
+}
+
+.project__overlay {
+  /* take full width of parent container */
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: #1c1d25;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.project:hover .project__overlay {
+  opacity: 0.6;
+  visibility: visible;
+}
+
+.project:hover .project__img {
+  filter: blur(5px);
+  scale: 1.07;
+  /* transition: all 300ms ease; */
 }
