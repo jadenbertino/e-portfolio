@@ -101,8 +101,15 @@ header {
 }
 
 .header__container {
-  margin: 12vh auto 0;
-  max-width: 1000px;
+  /* center horizontally + vertically */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* responsive width */
+  max-width: 1100px;
+  width: 100%;
   padding: 0 30px;
 }
 
