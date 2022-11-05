@@ -39,8 +39,13 @@ button {
 
 span {
   font-size: inherit;
-
 }
+
+/*
+
+RE-USABLES
+
+*/
 
 .orange {
   color: #F06449;
@@ -48,6 +53,24 @@ span {
 
 .bold {
   font-weight: bold;
+}
+
+.container {
+  padding: 50px 0;
+}
+
+.row {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.section__title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 /*
@@ -69,7 +92,8 @@ nav {
   justify-content: space-between;
 }
 
-.nav__logo {
+.nav__logo,
+.footer__logo {
   width: 64px;
   display: flex;
   align-items: center;
@@ -144,5 +168,153 @@ header {
 }
 
 .social__icon {
+  color: white;
+  padding-left: 2px;
+}
+
+
+/*
+
+PROJECTS
+
+*/
+
+.project {
+  margin-bottom: 135px;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 609.25px;
+  box-shadow:
+    0 /* horizontal offset */
+    20px /* vertical offset */
+    80px /* blur radius offset */
+    0 /* shadow size - 0 means same as box */
+    rgb(0, 0, 0, 0.45); /* shadow color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  position: relative;
+}
+
+
+.project__img {
+  width: 130%;
+  padding-top: 20px;
+  background-color: white;
+}
+
+.project__img--ecom {
+  width: 100%;
+}
+
+.project__overlay,
+.project__img {
+  transition: all 500ms ease;
+}
+
+.project__overlay {
+  /* take full width of parent container */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* could also set right and bottom to 0, but the 100% version is better practice */
+
+  background-color: #1c1d25;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* .project:hover */ .project__overlay {
+  /* TODO: remove above comment once I implement project description */
+  opacity: 0.7;
+  visibility: visible;
+}
+
+/* .project:hover */ .project__img {
+  /* TODO: remove above comment once I implement project description */
+  filter: blur(5px);
+  scale: 1.07;
+  transition: all 300ms ease;
+}
+
+.project__description {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 550px;
+  height: 100%;
+
+  margin-left: 15%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project__description--title,
+.project__description--sub-title,
+.project__description--para,
+.project__description--link {
+  color: white;
+}
+
+.project__description--title {
+  font-size: 40px;
+}
+
+.project__description--sub-title {
+  margin-top: 8px;
+}
+
+.project__description--para {
+  margin: 16px 0;
+  line-height: 1.5;
+}
+
+.project__description--link {
+  margin-right: 16px;
+  transition: transform 250ms ease;
+}
+
+.project__description--link:hover {
+  transform: scale(1.1);
+}
+
+/*
+
+FOOTER
+
+*/
+
+.footer__container {
+  padding: 5% 0;
+  background-color: #242424;
+}
+
+.footer__row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__logo {
+  width: 100px;
+}
+
+.social__links {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  margin: 36px 0;
+}
+
+.social__link,
+.footer__copyright {
   color: white;
 }
