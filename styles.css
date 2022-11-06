@@ -238,22 +238,27 @@ POP UP
 */
 
 .popup__wrapper {
+  /* fullscreen */
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
+
+  /* only clickable when popup is visible */
   visibility: hidden;
   opacity: 0;
   transition: opacity 500ms ease;
 }
 
-.popup__wrapper--visibility {
-  visibility: visible;
-}
-
 .popup__wrapper--opacity {
   opacity: 1;
+}
+
+.popup__wrapper--visibility {
+  /* can't be transitioned so I change visibility
+  after opacity is at 0 via javascript (500ms delay) */
+  visibility: visible;
 }
 
 .popup {
