@@ -258,17 +258,10 @@ POP UP
 
   /* only clickable when popup is visible */
   visibility: hidden;
-  opacity: 0;
-  transition: opacity 500ms ease;
-}
-
-.popup__wrapper--opacity {
-  opacity: 1;
 }
 
 .popup__wrapper--visibility {
-  /* can't be transitioned so I change visibility
-  after opacity is at 0 via javascript (500ms delay) */
+  /* I change visibility after opacity is at 0 via javascript (500ms delay) */
   visibility: visible;
 }
 
@@ -281,13 +274,22 @@ POP UP
   transform: translate(-50%, -50%);
   border-radius: 18px;
   overflow: hidden;
+  opacity: 0;
 
   display: flex;
   align-items: stretch;
   justify-content: stretch;
+  transition: opacity 500ms ease;
 }
 
+.popup--opacity {
+  opacity: 1;
+}
 
+.popup--opacity .popup__half--left,
+.popup--opacity .popup__half--right {
+  transform: translateX(0);
+}
 
 .popup__half {
   width: 100%;
@@ -311,10 +313,7 @@ POP UP
   transform: translateX(100%);
 }
 
-.popup__wrapper--opacity .popup__half--left,
-.popup__wrapper--opacity .popup__half--right {
-  transform: translateX(0);
-}
+
 
 .popup__img--wrapper {
   width: 124px;

@@ -4,6 +4,7 @@ Start Pop Up
 
 */
 
+// btns that open popup
 const popupStarters = [
   document.querySelector("#nav__about"),
   document.querySelector("#nav__contact"),
@@ -11,13 +12,13 @@ const popupStarters = [
   document.querySelector("#footer__contact")
 ];
 
+// add event listeners to said btns
 for (let btn of popupStarters) {
-  const startPopUp = btn.addEventListener("click", () => {
-    // document.querySelector(".popup").classList.add("popup--opacity");
+  btn.addEventListener("click", () => {
     document.querySelector(".popup__wrapper").classList.add("popup__wrapper--visibility");
-    document.querySelector(".popup__wrapper").classList.add("popup__wrapper--opacity");
+    document.querySelector(".popup").classList.add("popup--opacity");
   })
-}
+};
 
 /*
 
@@ -26,10 +27,9 @@ Close Pop Up
 */
 
 function closePopUp() {
-  const popup = document.querySelector(".popup__wrapper")
-  popup.classList.remove("popup__wrapper--opacity");
+  document.querySelector(".popup").classList.remove("popup--opacity");
   setTimeout(() => {
-    popup.classList.remove("popup__wrapper--visibility")
+    document.querySelector(".popup__wrapper").classList.remove("popup__wrapper--visibility")
   }, 500);
 }
 
@@ -42,7 +42,7 @@ const outsidePop = document.querySelector(".popup__wrapper");
 outsidePop.addEventListener("click", closePopUp);
 
 
-/* 
+/*
 
 CONTACT FORM
 
