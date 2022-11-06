@@ -257,12 +257,7 @@ POP UP
   height: 100%;
 
   /* only clickable when popup is visible */
-  visibility: hidden;
-}
-
-.popup__wrapper--visibility {
-  /* I change visibility after opacity is at 0 via javascript (500ms delay) */
-  visibility: visible;
+  z-index: -1;
 }
 
 .popup {
@@ -280,10 +275,17 @@ POP UP
   align-items: stretch;
   justify-content: stretch;
   transition: opacity 500ms ease;
+
+  z-index: -1;
 }
 
 .popup--opacity {
   opacity: 1;
+}
+
+.popup--clickable {
+  /* move popup wrapper and popup behind once it's gone */
+  z-index: 1;
 }
 
 .popup--opacity .popup__half--left,

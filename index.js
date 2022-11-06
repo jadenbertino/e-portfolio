@@ -15,7 +15,8 @@ const popupStarters = [
 // add event listeners to said btns
 for (let btn of popupStarters) {
   btn.addEventListener("click", () => {
-    document.querySelector(".popup__wrapper").classList.add("popup__wrapper--visibility");
+    document.querySelector(".popup__wrapper").classList.add("popup--clickable");
+    document.querySelector(".popup").classList.add("popup--clickable");
     document.querySelector(".popup").classList.add("popup--opacity");
   })
 };
@@ -28,8 +29,9 @@ Close Pop Up
 
 function closePopUp() {
   document.querySelector(".popup").classList.remove("popup--opacity");
+  document.querySelector(".popup__wrapper").classList.remove("popup--clickable");
   setTimeout(() => {
-    document.querySelector(".popup__wrapper").classList.remove("popup__wrapper--visibility")
+  document.querySelector(".popup").classList.remove("popup--clickable")
   }, 500);
 }
 
