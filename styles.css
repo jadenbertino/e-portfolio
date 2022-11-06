@@ -41,6 +41,13 @@ span {
   font-size: inherit;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700;
+}
 /*
 
 RE-USABLES
@@ -49,6 +56,10 @@ RE-USABLES
 
 .orange {
   color: #F06449;
+}
+
+.white {
+  color: #FFFFFF;
 }
 
 .bold {
@@ -68,9 +79,17 @@ RE-USABLES
 
 .section__title {
   font-size: 3rem;
-  font-weight: 700;
   text-align: center;
   margin-bottom: 60px;
+}
+
+.shadow {
+  box-shadow:
+  0 /* horizontal offset */
+  20px /* vertical offset */
+  80px /* blur radius offset */
+  0 /* shadow size - 0 means same as box */
+  rgb(0, 0, 0, 0.5); /* shadow color */
 }
 
 /*
@@ -172,6 +191,134 @@ header {
   padding-left: 2px;
 }
 
+/*
+
+POP UP
+
+*/
+
+.popup {
+  width: 1100px;
+  height: 700px;
+  position: absolute;
+  background-color: black;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 18px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.popup__half {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 40px 72px;
+}
+
+.popup__half--left {
+  background-color: #F5F5F5;
+}
+
+.popup__img--wrapper {
+  width: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5px;
+  margin-bottom: 16px;
+}
+
+.popup__img {
+  transform: scale(1.2);
+}
+
+.popup__title {
+  font-size: 26px;
+}
+
+.popup__sub-title {
+  margin: 12px 0 24px;
+  font-size: 14px;
+}
+
+.popup__para {
+  font-size: 16px;
+  margin-bottom: 12px;
+  line-height: 1.75;
+}
+
+.popup__languages {
+  display: flex;
+}
+
+.popup__language {
+  width: calc(100%/4);
+  padding: 16px;
+}
+
+.popup__half--right {
+  background-color: #242424;
+}
+
+.popup__half--right .popup__title,
+.popup__half--right .popup__sub-title,
+.form__item--label,
+.form__item--input {
+  color: white;
+}
+
+#contact__form {
+  width: 100%;
+}
+
+.form__item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 20px;
+}
+
+.form__item--label {
+  font-weight: 700;
+}
+
+input, textarea {
+  background-color: transparent;
+  outline: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: solid 3px #c0c4cc;
+  border-left: none;
+  min-height: 40px;
+  transition: all 300ms ease;
+}
+
+textarea {
+  resize: vertical; /* by default can also resize horizontally. */
+  height: 100px; /* start height */
+  margin-top: 12px;
+}
+
+input:hover,
+textarea:hover {
+  border-bottom-color: #dcdfe6;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #f06449;
+}
+
 
 /*
 
@@ -184,12 +331,6 @@ PROJECTS
   border-radius: 20px;
   overflow: hidden;
   height: 609.25px;
-  box-shadow:
-    0 /* horizontal offset */
-    20px /* vertical offset */
-    80px /* blur radius offset */
-    0 /* shadow size - 0 means same as box */
-    rgb(0, 0, 0, 0.45); /* shadow color */
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -63,6 +63,49 @@
         </div>
       </div>
     </header>
+    <div class="popup shadow">
+      <div class="popup__half popup__half--left">
+        <figure class="popup__img--wrapper">
+          <img src="./assets/headshot.JPG" class="popup__img" alt="">
+        </figure>
+        <h3 class="popup__title">
+          Here's a bit about me. . .
+        </h3>
+        <h4 class="popup__sub-title">
+          Frontend Software Engineer.
+        </h4>
+        <p class="popup__para">
+          I'm a <span class="orange bold">frontend software engineer</span>
+          with vast experience creating websites using <span class="bold">HTML, CSS, and JavaScript.</span><br><br>
+          I take pride in crafting <span class="bold">mobile-responsive</span> designs that
+          deliver <span class="bold">delightful user experiences</span>. 😀
+        </p>
+        <div class="popup__languages">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png" alt="" class="popup__language">
+          <img src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png" alt="" class="popup__language">
+          <img src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png" alt="" class="popup__language">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" alt="" class="popup__language">
+        </div>
+      </div>
+      <div class="popup__half popup__half--right">
+        <h3 class="popup__title">Let's grab a virtual coffee! ☕</h3>
+        <h4 class="popup__sub-title">Send me a message below and we can chat :)</h4>
+        <form id="contact__form">
+          <div class="form__item">
+            <label class="form__item--label">Name</label>
+            <input type="text" name = "name" class="form__item--input" required>
+          </div>
+          <div class="form__item">
+            <label class="form__item--label">Email</label>
+            <input type="text" name = "email" class="form__item--input" required>
+          </div>
+          <div class="form__item">
+            <label class="form__item--label">Message</label>
+            <textarea type="text" name = "message" class="form__item--input" required></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
   </section>
   <section id="projects">
     <div class="container">
@@ -72,7 +115,7 @@
         </h2>
         <div class="projects__list">
 
-          <div class="project">
+          <div class="project shadow">
             <figure class="project__img project__img--zoom">
               <img src="./assets/project-treact.png" alt="">
             </figure>
@@ -100,7 +143,7 @@
               </div>
             </div>
           </div>
-          <div class="project">
+          <div class="project shadow">
             <figure class="project__img project__img--zoom">
               <img src="./assets/project-messenger.png" alt="">
             </figure>
@@ -124,7 +167,7 @@
               </div>
             </div>
           </div>
-          <div class="project">
+          <div class="project shadow">
             <figure class="project__img project__img--ecom">
               <img src="./assets/project-ecom.png" alt="">
             </figure>
