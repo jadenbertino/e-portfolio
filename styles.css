@@ -348,6 +348,7 @@ POP UP
 
 .popup__languages {
   display: flex;
+  margin-left: -16px;
 }
 
 .popup__language {
@@ -437,8 +438,9 @@ PROJECTS
   width: 100%;
 }
 
-.project__img--messenger {
+.project__img--tindog {
   padding: 0;
+  width: 135%;
 }
 
 .project__background {
@@ -548,7 +550,7 @@ FOOTER
 }
 
 .footer__logo--wrapper {
-  width: 120px;
+  width: 100px;
   position: relative;
   display: flex;
   justify-content: center;
