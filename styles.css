@@ -55,8 +55,8 @@ RE-USABLES
 
 */
 
-.orange {
-  color: #F06449;
+.purple {
+  color: #6415FF;
 }
 
 .white {
@@ -219,7 +219,7 @@ header {
   height: 36px;
   width: 36px;
   margin-right: 12px;
-  background-color: #F06449;
+  background-color: #6415FF;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
@@ -358,7 +358,7 @@ textarea:hover {
 
 input:focus,
 textarea:focus {
-  border-color: #f06449;
+  border-color: #6415FF;
 }
 
 
@@ -495,8 +495,48 @@ FOOTER
   justify-content: center;
 }
 
-.footer__logo {
-  width: 100px;
+.social__link,
+.footer__copyright,
+.footer__scroll-up__text,
+.footer__scroll-up__arrow {
+  color: white;
+}
+
+.footer__logo--wrapper {
+  width: 120px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__scroll-up {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  transform: translate(100%, 75%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease;
+  /* background: red; */
+}
+
+.footer__logo--wrapper:hover .footer__scroll-up {
+  transform: translate(100%, 0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.footer__scroll-up__text {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.footer__scroll-up__arrow {
+  margin-left: 8px;
 }
 
 .social__links {
@@ -506,9 +546,4 @@ FOOTER
   display: flex;
   justify-content: space-around;
   margin: 36px 0;
-}
-
-.social__link,
-.footer__copyright {
-  color: white;
 }
