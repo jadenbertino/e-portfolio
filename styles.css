@@ -229,7 +229,6 @@ header {
 
 .social__icon {
   color: white;
-  padding-left: 2px;
 }
 
 /*
@@ -252,7 +251,12 @@ POP UP
   display: flex;
   align-items: stretch;
   justify-content: stretch;
-  display: none;
+  /* visibility: hidden; */
+  visibility: visible;
+}
+
+.popup--display {
+  visibility: visible;
 }
 
 .popup__half {
@@ -263,6 +267,7 @@ POP UP
   align-items: start;
   justify-content: center;
   padding: 40px 72px;
+  position: relative;
 }
 
 .popup__half--left {
@@ -312,11 +317,15 @@ POP UP
   background-color: #242424;
 }
 
-.popup__half--right .popup__title,
-.popup__half--right .popup__sub-title,
-.form__item--label,
-.form__item--input {
+.popup__half--right * {
   color: white;
+}
+
+.popup__exit-btn {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  font-size: 2.5rem;
 }
 
 #contact__form {

@@ -15,10 +15,9 @@
       <figure class="nav__logo">
         <img src="./assets/logo-full-black-crop.png" alt="">
       </figure>
-
       <ul class="nav__links--list">
         <li class="nav__links--list-item">
-          <a href="#" class="
+          <a href="#" id="nav__about" class="
           nav__links--anchor
           link__hover-effect
           link__hover-effect--black
@@ -36,7 +35,7 @@
           </a>
         </li>
         <li class="nav__links--list-item">
-          <a href="#" class="
+          <a href="#" id="nav__contact" class="
           nav__links--anchor
           link__hover-effect
           link__hover-effect--black
@@ -69,13 +68,13 @@
         </p>
         <div class="social__list">
           <a href="#" class="social__btn btn__hover-effect">
-            <i class="fa-brands fa-linkedin-in social__icon"></i>
+            <i class="social__icon fa-brands fa-linkedin-in"></i>
           </a>
           <a href="#" class="social__btn btn__hover-effect">
-            <i class="fa-brands fa-github social__icon"></i>
+            <i class="social__icon fa-brands fa-github"></i>
           </a>
-          <a href="#" class="social__btn btn__hover-effect">
-            <i class="fas fa-file-pdf social__icon"></i>
+          <a href="#" class="social__btn btn__hover-effect" id="social__btn--contact">
+            <i class="social__icon fa-solid fa-envelope"></i>
           </a>
         </div>
       </div>
@@ -105,6 +104,9 @@
         </div>
       </div>
       <div class="popup__half popup__half--right">
+        <a>
+          <i class="popup__exit-btn fas fa-times"></i>
+        </a>
         <h3 class="popup__title">Let's grab a virtual coffee! ☕</h3>
         <h4 class="popup__sub-title">Send me a message below and we can chat :)</h4>
         <form id="contact__form">
@@ -243,19 +245,12 @@
           ">
             LinkedIn
           </a>
-          <a href="" class="
+          <a id="footer__contact" class="
           social__link
           link__hover-effect
           link__hover-effect--white
           ">
             Contact
-          </a>
-          <a href="" class="
-          social__link
-          link__hover-effect
-          link__hover-effect--white
-          ">
-            Resume
           </a>
         </div>
         <div class="footer__copyright">
