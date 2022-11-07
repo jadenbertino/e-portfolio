@@ -43,7 +43,17 @@ closeBtn.addEventListener("click", closePopUp);
 const outsidePop = document.querySelector(".popup__wrapper");
 outsidePop.addEventListener("click", closePopUp);
 
+/*
 
+DARK MODE
+
+*/
+
+const toggleButton = document.querySelector("#btn__dark-mode");
+
+toggleButton.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+})
 /*
 
 CONTACT FORM

@@ -7,13 +7,23 @@ rgb(245, 245, 245)
 
 /*
 
-TODO:
-- dark mode
-- form
-- background spinning images animations
-- replace python project
-
+TODO: DARK MODE
+- background dark #242424
+- #242424 text becomes white
+  - icon inverts
+  - mostly header and footer
+- logo inverts
+- fix tindog mobile optimization
 */
+
+/*
+
+TODO:
+- add form logic
+- background spinning images animations
+*/
+
+
 
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
@@ -166,6 +176,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  transition: opacity 300ms ease;
 }
 
 .nav__links--list {
@@ -181,7 +193,7 @@ nav {
   font-weight: 700;
 }
 
-.nav__links--dark-mode {
+.nav__links--dark-mode-btn {
   padding-bottom: 3px;
 }
 
@@ -532,7 +544,7 @@ FOOTER
 */
 
 .footer__container {
-  padding: 5% 0;
+  padding: 0 0 5% 0;
   background-color: #242424;
 }
 
@@ -594,4 +606,62 @@ FOOTER
   display: flex;
   justify-content: space-around;
   margin: 36px 0;
+}
+
+
+/*
+
+Dark Mode
+
+*/
+
+.purple,
+.social__btn,
+body {
+  transition: all 750ms ease;
+}
+
+body.dark {
+  background-color: #242424;
+}
+
+.dark .purple {
+  /* color: #8547FF; */
+  color: #8351E5;
+  color: #f06449;
+}
+
+.dark .nav__links--anchor,
+.dark .header__title,
+.dark .header__para,
+.dark .section__title,
+.dark #btn__dark-mode
+{
+  color: white;
+}
+
+.dark .link__hover-effect--black::after {
+  background-color: #f5f5f5;
+}
+
+.dark .link__hover-effect--white::after {
+  background-color: #242424;
+}
+
+.nav__logo--black,
+.dark .nav__logo--white {
+  opacity: 1;
+}
+
+.dark .nav__logo--black {
+  opacity: 0;
+}
+
+.nav__logo--white {
+  position: absolute;
+  opacity: 0;
+}
+
+.dark .social__btn {
+  background-color: #f06449;
 }
