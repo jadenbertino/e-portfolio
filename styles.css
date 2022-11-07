@@ -7,20 +7,12 @@ rgb(245, 245, 245)
 
 /*
 
-TODO: DARK MODE
-- background dark #242424
-- #242424 text becomes white
-  - icon inverts
-  - mostly header and footer
-- logo inverts
-- fix tindog mobile optimization
-*/
-
-/*
-
 TODO:
 - add form logic
 - background spinning images animations
+- section links
+  - mail icon
+  - contact at bottom
 */
 
 
@@ -114,6 +106,15 @@ RE-USABLES
   rgb(0, 0, 0, 0.5); /* shadow color */
 }
 
+.shadow--light {
+  box-shadow:
+  0 /* horizontal offset */
+  20px /* vertical offset */
+  60px /* blur radius offset */
+  0 /* shadow size - 0 means same as box */
+  rgb(0, 0, 0, 0.3); /* shadow color */
+}
+
 .link__hover-effect {
   position: relative;
 }
@@ -147,7 +148,7 @@ RE-USABLES
 
 .btn__hover-effect:hover,
 .nav__links--list-item:hover .btn__hover-effect {
-  transform: scale(1.07);
+  transform: scale(1.1);
 }
 
 
@@ -420,6 +421,28 @@ textarea:hover {
 input:focus,
 textarea:focus {
   border-color: #6415FF;
+}
+
+/*
+
+EMAIL ENVELOPE
+
+*/
+
+.mail__btn {
+  width: 70px;
+  height: 70px;
+  background-color: #242424;
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: none;
+}
+
+.mail__icon {
+  color: #FFFFFF;
 }
 
 /*
@@ -740,4 +763,12 @@ body.dark {
 
 .dark .social__btn {
   background-color: #f06449;
+}
+
+.dark .mail__icon {
+  color: #242424;
+}
+
+.dark .mail__btn {
+  background-color: #FFFFFF;
 }
