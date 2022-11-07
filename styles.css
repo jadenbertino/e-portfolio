@@ -8,11 +8,16 @@ rgb(245, 245, 245)
 /*
 
 TODO:
-- add form logic
-- background spinning images animations
-- section links
+- links
   - mail icon
   - contact at bottom
+- add form logic
+- background spinning images animations
+- fix tindog
+  - mobile optimization
+  - favicon
+  - add another carousel
+  - one of the proof logos not working
 */
 
 
@@ -28,6 +33,10 @@ TODO:
   font-family: 'Roboto', sans-serif;
   color: #242424;
   font-size: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
