@@ -422,6 +422,86 @@ textarea:focus {
   border-color: #6415FF;
 }
 
+/*
+
+BACKGROUND DECORATIONS
+
+*/
+
+.background-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.shape {
+  position: absolute;
+}
+
+.shape--semi-circle {
+  width: 32px;
+}
+
+.shape--circle {
+  width: 24px;
+}
+
+.shape--squiggly {
+  width: 44px;
+}
+
+.shape--triangle {
+  width: 32px;
+}
+
+.shape--0 {
+  left: 10%;
+  top: 18%;
+}
+
+.shape--1 {
+  left: 40%;
+  top: 12%;
+}
+
+.shape--2 {
+  right: 10%;
+  top: 15%
+}
+
+.shape--3 {
+  left: 1%;
+  top: 48%;
+}
+
+.shape--4 {
+  top: 52%;
+  right: 44%;
+}
+
+.shape--5 {
+  right: 20%;
+  top: 48%;
+}
+
+.shape--6 {
+  left: 7%;
+  bottom: 17%;
+}
+
+.shape--7 {
+  left: 44%;
+  bottom: 20%;
+}
+.shape--8 {
+  right: 12%;
+  bottom: 16%;
+}
+
+
 
 /*
 
