@@ -78,7 +78,7 @@ RE-USABLES
 */
 
 .purple {
-  color: #6415FF;
+  color: #5d3eff;
 }
 
 .white {
@@ -738,8 +738,6 @@ body.dark {
 }
 
 .dark .purple {
-  /* color: #8547FF; */
-  color: #8351E5;
   color: #f06449;
 }
 
