@@ -544,7 +544,7 @@ FOOTER
 */
 
 .footer__container {
-  padding: 0 0 5% 0;
+  padding: 5% 0;
   background-color: #242424;
 }
 
@@ -642,10 +642,6 @@ body.dark {
 
 .dark .link__hover-effect--black::after {
   background-color: #f5f5f5;
-}
-
-.dark .link__hover-effect--white::after {
-  background-color: #242424;
 }
 
 .nav__logo--black,
