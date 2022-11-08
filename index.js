@@ -20,7 +20,7 @@ const popupStarters = [
   document.querySelector("#social__btn--contact"),
   document.querySelector("#footer__contact"),
   document.querySelector(".mail__btn"),
-  document.querySelector(".about-me")
+  document.querySelector(".about-me"),
 ];
 
 // add event listeners to said btns
@@ -35,9 +35,8 @@ for (let btn of popupStarters) {
     document.body.classList.add("hide");
     // header.classList.add('hide');
     // nav.classList.add('hide');
-  })
-};
-
+  });
+}
 
 /*
 
@@ -51,13 +50,13 @@ function closePopUp() {
   // header.classList.remove('hide');
   // nav.classList.remove('hide');
   setTimeout(() => {
-  popup.classList.remove("popup--open")
+    popup.classList.remove("popup--open");
   }, 500);
   setTimeout(() => {
-    loading.classList.remove('popup__overlay--visible');
-    success.classList.remove('popup__overlay--visible');
+    loading.classList.remove("popup__overlay--visible");
+    success.classList.remove("popup__overlay--visible");
     document.body.classList.remove("hide");
-  }, 750)
+  }, 750);
 }
 
 // Click X -> Close Pop Up
@@ -78,7 +77,7 @@ const toggleButton = document.querySelector("#btn__dark-mode");
 
 toggleButton.addEventListener("click", () => {
   document.body.classList.toggle("dark");
-})
+});
 /*
 
 CONTACT FORM
@@ -92,33 +91,42 @@ contactForm.addEventListener("submit", (event) => {
 
   loading.classList.add("popup__overlay--visible");
 
-  emailjs.sendForm(
-    'service_vbc5994',
-    'template_x9t7sqw',
-    event.target,
-    'fF_O7kEQetQW4I_Lt'
-  ).then(() => {
-    loading.classList.remove("popup__overlay--visible");
-    success.classList.add("popup__overlay--visible");
-    contactForm.reset();
-  }).catch(() => {
-    loading.classList.remove("popup__overlay--visible");
-    alert(
-      "The email service is temporarily unavailable. Please contact me directly at jaden@bertinofamily.com"
-    );
-  })
+  emailjs
+    .sendForm(
+      "service_vbc5994",
+      "template_x9t7sqw",
+      event.target,
+      "fF_O7kEQetQW4I_Lt"
+    )
+    .then(() => {
+      loading.classList.remove("popup__overlay--visible");
+      success.classList.add("popup__overlay--visible");
+      contactForm.reset();
+    })
+    .catch(() => {
+      loading.classList.remove("popup__overlay--visible");
+      alert(
+        "The email service is temporarily unavailable. Please contact me directly at jaden@bertinofamily.com"
+      );
+    });
 });
 
-
 /*
-template_x9t7sqw
-service_vbc5994
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("fF_O7kEQetQW4I_Lt");
-   })();
-</script>
+
+  BACKGROUND DECORATIONS
+
 */
+
+const scaleFactor = 1 / 20;
+const shapes = document.querySelectorAll(".shape");
+
+document.body.addEventListener("mousemove", (event) => {
+  const x = event.clientX * scaleFactor;
+  const y = event.clientY * scaleFactor;
+  for (let i = 0; i < shapes.length; i++) {
+    const isOdd = i % 2 === 1;
+    const direction = isOdd ? -1 : 1;
+    shapes[i].style.transform =
+      `translate(${x * direction}px, ${y * direction}px) rotate(${x * 10}deg)`;
+  }
+});
