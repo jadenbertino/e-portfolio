@@ -423,7 +423,7 @@ textarea:focus {
 
 /*
 
-EMAIL ENVELOPE
+EMAIL ENVELOPE & SCROLL
 
 */
 
@@ -441,6 +441,44 @@ EMAIL ENVELOPE
 
 .mail__icon {
   color: #ffffff;
+}
+
+.scroll {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll__icon {
+  width: 20px;
+  height: 30px;
+  border: 2px solid #242424;
+  border-radius: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll__icon:after {
+  /* moving  */
+  content: "";
+  width: 4px;
+  height: 6px;
+  background-color: #242424;
+  border-radius: 2px;
+  animation: scroll-wheel 1s infinite alternate-reverse ease-out;
+}
+
+@keyframes scroll-wheel {
+  0 {
+    transform: translateY(3px);
+  }
+
+  100% {
+    transform: translateY(-3px);
+  }
 }
 
 /*
