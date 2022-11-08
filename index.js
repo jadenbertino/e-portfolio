@@ -1,8 +1,8 @@
 // html elements
 const popupWrapper = document.querySelector(".popup__wrapper");
 const popup = document.querySelector(".popup");
-const header = document.querySelector(".header__container");
-const nav = document.querySelector("#nav");
+// const header = document.querySelector(".header__container");
+// const nav = document.querySelector("#nav");
 const contactForm = document.querySelector("#contact__form");
 const loading = document.querySelector(".popup__overlay--loading");
 const success = document.querySelector(".popup__overlay--success");
@@ -32,8 +32,9 @@ for (let btn of popupStarters) {
     popup.classList.add("popup--opacity");
 
     // hide heading + nav when popup is open
-    header.classList.add('hide');
-    nav.classList.add('hide');
+    document.body.classList.add("hide");
+    // header.classList.add('hide');
+    // nav.classList.add('hide');
   })
 };
 
@@ -47,14 +48,15 @@ Close Pop Up
 function closePopUp() {
   popup.classList.remove("popup--opacity");
   popupWrapper.classList.remove("popup--open");
+  // header.classList.remove('hide');
+  // nav.classList.remove('hide');
   setTimeout(() => {
   popup.classList.remove("popup--open")
   }, 500);
   setTimeout(() => {
-    header.classList.remove('hide');
-    nav.classList.remove('hide');
     loading.classList.remove('popup__overlay--visible');
     success.classList.remove('popup__overlay--visible');
+    document.body.classList.remove("hide");
   }, 750)
 }
 

@@ -320,13 +320,16 @@ POP UP
   z-index: 1;
 }
 
-.hide {
+.hide #nav,
+.hide .header__container,
+.hide .scroll {
   /* class adds to nav + header when nav is open */
   opacity: 0;
 }
 
 #nav,
-.header__container {
+.header__container,
+.scroll {
   transition: opacity 750ms ease;
 }
 
