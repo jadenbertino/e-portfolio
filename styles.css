@@ -479,6 +479,33 @@ POP UP
   border-color: #5d3eff;
   color: #5d3eff;
 }
+
+.popup__overlay--loading {
+  z-index: -1;
+  background-color: #242424;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-spinner {
+  font-size: 80px;
+  animation: spin 1s infinite ease-in-out;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /*
 
 EMAIL ENVELOPE & SCROLL
