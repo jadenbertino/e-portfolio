@@ -480,9 +480,7 @@ POP UP
   color: #5d3eff;
 }
 
-.popup__overlay--loading {
-  z-index: -1;
-  background-color: #242424;
+.popup__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -491,6 +489,20 @@ POP UP
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.popup__overlay--loading {
+  display: none;
+  background-color: #242424;
+}
+
+.popup__overlay--success {
+  display: none;
+  background-color: #4bb543;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  padding: 28px;
 }
 
 .fa-spinner {
