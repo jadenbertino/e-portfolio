@@ -117,16 +117,17 @@ contactForm.addEventListener("submit", (event) => {
 
 */
 
-const scaleFactor = 1 / 20;
+const moveFactor = 1 / 20;
+const rotateFactor = 10;
 const shapes = document.querySelectorAll(".shape");
 
 document.body.addEventListener("mousemove", (event) => {
-  const x = event.clientX * scaleFactor;
-  const y = event.clientY * scaleFactor;
+  const x = event.clientX * moveFactor;
+  const y = event.clientY * moveFactor;
   for (let i = 0; i < shapes.length; i++) {
     const isOdd = i % 2 === 1;
     const direction = isOdd ? -1 : 1;
     shapes[i].style.transform =
-      `translate(${x * direction}px, ${y * direction}px) rotate(${x * 10}deg)`;
+      `translate(${x * direction}px, ${y * direction}px) rotate(${x * rotateFactor}deg)`;
   }
 });
