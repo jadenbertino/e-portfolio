@@ -61,6 +61,24 @@ h5 {
   font-weight: 700;
 }
 
+input,
+textarea {
+  background-color: transparent;
+  outline: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: solid 3px #c0c4cc;
+  border-left: none;
+  min-height: 40px;
+  transition: border-color 300ms ease;
+}
+
+textarea {
+  resize: vertical; /* by default can also resize horizontally, this disables it */
+  height: 100px; /* start height */
+  margin-top: 12px;
+}
+
 /*
 
 RE-USABLES
@@ -359,6 +377,7 @@ POP UP
 }
 
 .popup__sub-title {
+  font-size: 14px;
 }
 
 .popup__para {
@@ -393,7 +412,7 @@ POP UP
   position: absolute;
   bottom: -12px;
   transform: scale(0);
-  transition: transform 250ms ease;
+  transition: transform 300ms ease;
 }
 
 .popup__language--wrapper:hover .popup__language--name {
@@ -415,6 +434,10 @@ POP UP
   width: 100%;
 }
 
+.popup__sub-title {
+  margin: 12px 0 24px;
+}
+
 .form__item {
   display: flex;
   flex-direction: column;
@@ -424,24 +447,6 @@ POP UP
 
 .form__item--label {
   font-weight: 700;
-}
-
-input,
-textarea {
-  background-color: transparent;
-  outline: none;
-  border-top: none;
-  border-right: none;
-  border-bottom: solid 3px #c0c4cc;
-  border-left: none;
-  min-height: 40px;
-  transition: border-color 300ms ease;
-}
-
-textarea {
-  resize: vertical; /* by default can also resize horizontally. */
-  height: 100px; /* start height */
-  margin-top: 12px;
 }
 
 input:hover,
@@ -454,6 +459,27 @@ textarea:focus {
   border-color: #6415ff;
 }
 
+.form__submit {
+  background-color: #5d3eff;
+  border: 2px solid #5d3eff;
+  color: white;
+  font-weight: 700;
+  max-width: 240px;
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 1.25rem;
+  transition: all 300ms ease;
+}
+
+.form__submit:hover {
+  border-color: #fff;
+  background-color: transparent;
+}
+
+.form__submit:active {
+  border-color: #5d3eff;
+  color: #5d3eff;
+}
 /*
 
 EMAIL ENVELOPE & SCROLL
@@ -812,7 +838,8 @@ body.dark {
   filter: invert(100%);
 }
 
-.dark .social__btn {
+.dark .social__btn,
+.dark .form__submit {
   background-color: #f06449;
 }
 
