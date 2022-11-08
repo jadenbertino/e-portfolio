@@ -450,7 +450,7 @@ POP UP
 }
 
 
-.form__item--input {
+.form__item--input:hover {
   border-bottom-color: #dcdfe6;
 }
 
