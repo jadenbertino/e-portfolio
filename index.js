@@ -3,6 +3,9 @@ const popupWrapper = document.querySelector(".popup__wrapper");
 const popup = document.querySelector(".popup");
 const header = document.querySelector(".header__container");
 const nav = document.querySelector("#nav");
+const contactForm = document.querySelector("#contact__form");
+const loading = document.querySelector(".popup__overlay--loading");
+const success = document.querySelector(".popup__overlay--success");
 
 /*
 
@@ -50,6 +53,8 @@ function closePopUp() {
   setTimeout(() => {
     header.classList.remove('hide');
     nav.classList.remove('hide');
+    loading.classList.remove('popup__overlay--visible');
+    success.classList.remove('popup__overlay--visible');
   }, 750)
 }
 
@@ -79,8 +84,39 @@ CONTACT FORM
 */
 
 // Submit Contact Form
-const contactForm = document.querySelector("#contact__form");
 
 contactForm.addEventListener("submit", (event) => {
-  console.log(event);
+  event.preventDefault(); // form submit reloads page by default, this prevents that.
+
+  loading.classList.add("popup__overlay--visible");
+
+  emailjs.sendForm(
+    'service_vbc5994',
+    'template_x9t7sqw',
+    event.target,
+    'fF_O7kEQetQW4I_Lt'
+  ).then(() => {
+    loading.classList.remove("popup__overlay--visible");
+    success.classList.add("popup__overlay--visible");
+    contactForm.reset();
+  }).catch(() => {
+    loading.classList.remove("popup__overlay--visible");
+    alert(
+      "The email service is temporarily unavailable. Please contact me directly at jaden@bertinofamily.com"
+    );
+  })
 });
+
+
+/*
+template_x9t7sqw
+service_vbc5994
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("fF_O7kEQetQW4I_Lt");
+   })();
+</script>
+*/
