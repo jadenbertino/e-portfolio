@@ -449,13 +449,12 @@ POP UP
   font-weight: 700;
 }
 
-input:hover,
-textarea:hover {
+
+.form__item--input {
   border-bottom-color: #dcdfe6;
 }
 
-input:focus,
-textarea:focus {
+.form__item--input:focus {
   border-color: #6415ff;
 }
 
@@ -849,4 +848,19 @@ body.dark {
 
 .dark .mail__btn {
   background-color: #ffffff;
+}
+
+.dark .form__item--input:focus,
+.dark .form__submit {
+  border-color: #f06449;
+}
+
+.dark .form__submit:hover {
+  border-color: #fff;
+  background-color: transparent;
+}
+
+.dark .form__submit:active {
+  border-color: #f06449;
+  color: #f06449;
 }
