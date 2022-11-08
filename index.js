@@ -10,7 +10,8 @@ const popupStarters = [
   document.querySelector("#nav__contact"),
   document.querySelector("#social__btn--contact"),
   document.querySelector("#footer__contact"),
-  document.querySelector(".mail__btn")
+  document.querySelector(".mail__btn"),
+  document.querySelector(".about-me")
 ];
 
 // add event listeners to said btns

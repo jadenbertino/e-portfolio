@@ -49,6 +49,7 @@ a:visited {
 a,
 button {
   cursor: pointer;
+  font-size: inherit;
 }
 
 span {
