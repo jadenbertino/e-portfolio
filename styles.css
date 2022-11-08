@@ -981,3 +981,28 @@ body.dark {
   border-color: #f06449;
   color: #f06449;
 }
+
+@media (max-width: 768px) {
+  .header__title {
+    font-size: 80px;
+  }
+
+  .header__para {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .popup {
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: none;
+    flex-direction: column-reverse;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .popup__half {
+    width: 100%;
+  }
+}
