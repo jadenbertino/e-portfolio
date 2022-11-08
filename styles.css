@@ -295,9 +295,18 @@ POP UP
   opacity: 1;
 }
 
-.popup--clickable {
+.popup--open {
   /* move popup wrapper and popup behind once it's gone */
   z-index: 1;
+}
+
+.hide {
+  opacity: 0;
+}
+
+#nav,
+.header__container {
+  transition: opacity 750ms ease;
 }
 
 .popup--opacity .popup__half--left,
@@ -590,7 +599,6 @@ PROJECTS
 
 .project__img--tindog {
   padding: 0;
-  width: 135%;
 }
 
 .project__background {
@@ -735,11 +743,11 @@ FOOTER
 }
 
 .social__links {
-  max-width: 500px;
+  max-width: 360px;
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 36px 0;
 }
 

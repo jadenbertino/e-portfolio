@@ -1,3 +1,9 @@
+// html elements
+const popupWrapper = document.querySelector(".popup__wrapper");
+const popup = document.querySelector(".popup");
+const header = document.querySelector(".header__container");
+const nav = document.querySelector("#nav");
+
 /*
 
 Start Pop Up
@@ -17,11 +23,17 @@ const popupStarters = [
 // add event listeners to said btns
 for (let btn of popupStarters) {
   btn.addEventListener("click", () => {
-    document.querySelector(".popup__wrapper").classList.add("popup--clickable");
-    document.querySelector(".popup").classList.add("popup--clickable");
-    document.querySelector(".popup").classList.add("popup--opacity");
+    popupWrapper.classList.add("popup--open");
+    // separate because need a delay between them when removing later on
+    popup.classList.add("popup--open");
+    popup.classList.add("popup--opacity");
+
+    // hide heading + nav when popup is open
+    header.classList.add('hide');
+    nav.classList.add('hide');
   })
 };
+
 
 /*
 
@@ -30,11 +42,15 @@ Close Pop Up
 */
 
 function closePopUp() {
-  document.querySelector(".popup").classList.remove("popup--opacity");
-  document.querySelector(".popup__wrapper").classList.remove("popup--clickable");
+  popup.classList.remove("popup--opacity");
+  popupWrapper.classList.remove("popup--open");
   setTimeout(() => {
-  document.querySelector(".popup").classList.remove("popup--clickable")
+  popup.classList.remove("popup--open")
   }, 500);
+  setTimeout(() => {
+    header.classList.remove('hide');
+    nav.classList.remove('hide');
+  }, 750)
 }
 
 // Click X -> Close Pop Up
