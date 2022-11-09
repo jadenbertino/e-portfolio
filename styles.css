@@ -102,10 +102,9 @@ RE-USABLES
 }
 
 .row {
-  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 12px;
+  padding: 0 36px;
 }
 
 .section__title {
@@ -176,11 +175,8 @@ NAV
 */
 
 nav {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
+  max-width: 1100px;
   height: 100px;
-
   padding: 0 20px;
 
   display: flex;
@@ -733,6 +729,10 @@ PROJECTS
 
 */
 
+.row--projects {
+  max-width: 1000px;
+}
+
 .project {
   margin-bottom: 135px;
   border-radius: 20px;
@@ -747,8 +747,12 @@ PROJECTS
 
 .project__img {
   width: 130%;
+  height: 100%;
   padding-top: 20px;
   background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project__img--ecom {
@@ -756,7 +760,7 @@ PROJECTS
 }
 
 .project__img--tindog {
-  padding: 0;
+  background-color: #ff4c68;
 }
 
 .project__background {
@@ -980,6 +984,11 @@ body.dark {
 .dark .form__submit:active {
   border-color: #f06449;
   color: #f06449;
+}
+
+@media (max-width: 1024px) {
+  .project {
+  }
 }
 
 @media (max-width: 768px) {
