@@ -539,6 +539,7 @@ EMAIL ENVELOPE & SCROLL
   border-radius: 50%;
   overflow: hidden;
   border: none;
+  z-index: 100;
 }
 
 .mail__icon {
@@ -784,7 +785,8 @@ PROJECTS
   width: 550px;
   height: 100%;
 
-  margin-left: 15%;
+  margin: 0 10%;
+  max-width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -986,11 +988,6 @@ body.dark {
   color: #f06449;
 }
 
-@media (max-width: 1024px) {
-  .project {
-  }
-}
-
 @media (max-width: 768px) {
   .header__title {
     font-size: 80px;
@@ -1013,5 +1010,26 @@ body.dark {
 
   .popup__half {
     width: 100%;
+  }
+
+  .project {
+    height: 67vw;
+  }
+}
+
+@media (max-width: 640px) {
+  .project__description {
+    text-align: center;
+  }
+
+  .project__description--title {
+    font-size: 32px;
+  }
+  .project__description--para {
+    display: none;
+  }
+
+  .project__description--links {
+    margin-top: 16px;
   }
 }
