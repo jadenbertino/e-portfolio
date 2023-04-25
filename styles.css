@@ -1,25 +1,11 @@
-/*
-colors
-
-background:
-rgb(245, 245, 245)
-*/
-
-/*
-
-TODO:
-- add form logic
-- background spinning images animations
-*/
-
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #242424;
   font-size: 1rem;
 }
@@ -31,7 +17,7 @@ html {
 body {
   background-color: #f5f5f5;
   max-width: 100vw;
-  overflow-x: hidden; /* disable horizontal scroll */
+  overflow-x: hidden;
 }
 
 img {
@@ -74,14 +60,14 @@ textarea {
 }
 
 textarea {
-  resize: vertical; /* by default can also resize horizontally, this disables it */
-  height: 100px; /* start height */
+  resize: vertical;
+  height: 100px;
   margin-top: 12px;
 }
 
 /*
 
-RE-USABLES
+    RE-USABLES
 
 */
 
@@ -114,19 +100,11 @@ RE-USABLES
 }
 
 .shadow {
-  box-shadow: 0 /* horizontal offset */ 
-  20px /* vertical offset */ 
-  80px    /* blur radius offset */ 
-  0 /* shadow size - 0 means same as box */
-  rgb(0, 0, 0, 0.5); /* shadow color */
+  box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.5);
 }
 
 .shadow--light {
-  box-shadow: 0 /* horizontal offset */ 
-  20px /* vertical offset */ 
-  60px /* blur radius offset */ 
-  0 /* shadow size - 0 means same as box */
-  rgb(0, 0, 0, 0.3); /* shadow color */
+  box-shadow: 0 20px 60px 0 rgb(0, 0, 0, 0.3);
 }
 
 .link__hover-effect {
@@ -135,7 +113,7 @@ RE-USABLES
 
 .link__hover-effect::after {
   position: absolute;
-  content: "";
+  content: '';
   height: 3px;
   right: 0;
   bottom: -3px;
@@ -167,14 +145,12 @@ RE-USABLES
 
 .btn__hover-effect:active,
 .nav__links--list-item:active .btn__hover-effect {
-  /* :active means on click */
   transform: scale(0.8);
 }
 
-
 /*
 
-NAV
+    NAV
 
 */
 
@@ -220,7 +196,7 @@ nav {
 
 /*
 
-HEADER
+    HEADER
 
 */
 
@@ -229,16 +205,13 @@ header {
 }
 
 .header__container {
-  /* center horizontally + vertically */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  /* responsive width */
   max-width: 1100px;
-  /* width: 100%;
-  padding: 0 30px; */
+  width: 100%;
 }
 
 .header__title {
@@ -277,20 +250,17 @@ header {
 
 /*
 
-POP UP
+    POP UP
 
 */
 
 .popup__wrapper {
-  /* click outside pop up to exit */
-  /* fullscreen */
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
 
-  /* only clickable when popup is visible */
   z-index: -1;
 }
 
@@ -319,14 +289,12 @@ POP UP
 }
 
 .popup--open {
-  /* move popup wrapper and popup behind once it's gone */
   z-index: 1;
 }
 
 .hide #nav,
 .hide .header__container,
 .hide .scroll {
-  /* class adds to nav + header when nav is open */
   opacity: 0;
 }
 
@@ -389,7 +357,6 @@ POP UP
 .popup__para {
   margin: 12px 0;
   font-size: 16px;
-  /* margin-bottom: 12px; */
   line-height: 1.75;
 }
 
@@ -455,7 +422,6 @@ POP UP
 .form__item--label {
   font-weight: 700;
 }
-
 
 .form__item--input:hover {
   border-bottom-color: #dcdfe6;
@@ -530,9 +496,10 @@ POP UP
     transform: rotate(360deg);
   }
 }
+
 /*
 
-EMAIL ENVELOPE & SCROLL
+    EMAIL ENVELOPE & SCROLL
 
 */
 
@@ -572,8 +539,7 @@ EMAIL ENVELOPE & SCROLL
 }
 
 .scroll__icon:after {
-  /* moving  */
-  content: "";
+  content: '';
   width: 4px;
   height: 6px;
   background-color: #242424;
@@ -593,7 +559,7 @@ EMAIL ENVELOPE & SCROLL
 
 /*
 
-BACKGROUND DECORATIONS
+    BACKGROUND DECORATIONS
 
 */
 
@@ -626,18 +592,6 @@ BACKGROUND DECORATIONS
   width: 32px;
 }
 
-/*
-rows
-15vh
-50vh
-80vh
-
-cols
-5vw
-50vw
-80vw
-*/
-
 .shape--0 {
   top: 15vh;
   left: 5vw;
@@ -683,57 +637,9 @@ cols
   left: 80vw;
 }
 
-
-/*
-.shape--0 {
-  left: 10%;
-  top: 18%;
-}
-
-.shape--1 {
-  left: 40%;
-  top: 12%;
-}
-
-.shape--2 {
-  right: 10%;
-  top: 15%;
-}
-
-.shape--3 {
-  left: 1%;
-  top: 48%;
-}
-
-.shape--4 {
-  top: 52%;
-  right: 44%;
-}
-
-.shape--5 {
-  right: 20%;
-  top: 48%;
-}
-
-.shape--6 {
-  left: 7%;
-  bottom: 17%;
-}
-
-.shape--7 {
-  left: 44%;
-  bottom: 20%;
-}
-.shape--8 {
-  right: 12%;
-  bottom: 16%;
-}
-
-*/
-
 /*
 
-PROJECTS
+    PROJECTS
 
 */
 
@@ -763,13 +669,11 @@ PROJECTS
 }
 
 .project__background {
-  /* take full width of parent container */
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  /* could also set right and bottom to 0, but the 100% version is better practice */
 
   background-color: #1c1d25;
   opacity: 0;
@@ -789,7 +693,6 @@ PROJECTS
   flex-direction: column;
   justify-content: center;
 
-  /* animation */
   visibility: hidden;
   opacity: 0;
   transform: translateY(50%);
@@ -844,7 +747,7 @@ PROJECTS
 
 /*
 
-FOOTER
+    FOOTER
 
 */
 
@@ -886,7 +789,6 @@ FOOTER
   opacity: 0;
   visibility: hidden;
   transition: all 300ms ease;
-  /* background: red; */
 }
 
 .footer__logo--wrapper:hover .footer__scroll-up {
@@ -915,7 +817,7 @@ FOOTER
 
 /*
 
-Dark Mode
+    Dark Mode
 
 */
 
