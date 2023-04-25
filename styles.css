@@ -114,15 +114,19 @@ RE-USABLES
 }
 
 .shadow {
-  box-shadow: 0 /* horizontal offset */ 20px /* vertical offset */ 80px
-    /* blur radius offset */ 0 /* shadow size - 0 means same as box */
-    rgb(0, 0, 0, 0.5); /* shadow color */
+  box-shadow: 0 /* horizontal offset */ 
+  20px /* vertical offset */ 
+  80px    /* blur radius offset */ 
+  0 /* shadow size - 0 means same as box */
+  rgb(0, 0, 0, 0.5); /* shadow color */
 }
 
 .shadow--light {
-  box-shadow: 0 /* horizontal offset */ 20px /* vertical offset */ 60px
-    /* blur radius offset */ 0 /* shadow size - 0 means same as box */
-    rgb(0, 0, 0, 0.3); /* shadow color */
+  box-shadow: 0 /* horizontal offset */ 
+  20px /* vertical offset */ 
+  60px /* blur radius offset */ 
+  0 /* shadow size - 0 means same as box */
+  rgb(0, 0, 0, 0.3); /* shadow color */
 }
 
 .link__hover-effect {
@@ -578,7 +582,7 @@ EMAIL ENVELOPE & SCROLL
 }
 
 @keyframes scroll-wheel {
-  0 {
+  0% {
     transform: translateY(3px);
   }
 
@@ -750,21 +754,12 @@ PROJECTS
 }
 
 .project__img {
-  width: 130%;
   height: 100%;
   padding-top: 20px;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.project__img--ecom {
-  width: 100%;
-}
-
-.project__img--tindog {
-  background-color: #ff4c68;
 }
 
 .project__background {
