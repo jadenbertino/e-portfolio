@@ -1,109 +1,83 @@
-const $modalWrapper = document.querySelector('.modal__wrapper');
+const $modalBackdrop = document.querySelector('.modal__backdrop');
 const $modal = document.querySelector('.modal');
-const $contactForm = document.querySelector('#contact__form');
-const $loading = document.querySelector('.modal__overlay--loading');
-const $success = document.querySelector('.modal__overlay--success');
-
-/*
-
-    Open Pop Up
-
-*/
-
-// btns that open modal
-const modalStarters = [
-  document.querySelector('#nav__about'),
+const $modalLoading = document.querySelector('.modal__overlay--loading');
+const $modalSuccess = document.querySelector('.modal__overlay--success');
+const $modalStarters = [
   document.querySelector('#nav__contact'),
   document.querySelector('#social__btn--contact'),
   document.querySelector('#footer__contact'),
   document.querySelector('.mail__btn'),
-  document.querySelector('.about-me'),
 ];
+const $closeModalBtn = document.querySelector('.modal__exit-btn');
+const $toggleDarkModeBtn = document.querySelector('#btn__dark-mode');
+const $contactForm = document.querySelector('#contact-form');
 
-// add event listeners to said btns
-for (let btn of modalStarters) {
-  btn.addEventListener('click', () => {
-    $modalWrapper.classList.add('modal--open');
-    $modal.classList.add('modal--open');
-    $modal.classList.add('modal--opacity');
+/**
+ * OPEN MODAL
+ */
 
-    // hide heading + nav when modal is open
-    // document.body.classList.add('hide');
-  });
+function openModal() {
+  $modalBackdrop.classList.add('modal__backdrop--visible');
+  setTimeout(() => {
+    $modal.classList.add('modal--fade-in');
+  }); // must do on a separate event loop
 }
 
-/*
+$modalStarters.forEach(($btn) => {
+  $btn.addEventListener('click', openModal);
+});
 
-    Close Pop Up
+/**
+ * CLOSE MODAL
+ */
 
-*/
-
-function closemodal() {
-  $modal.classList.remove('modal--opacity');
-  $modalWrapper.classList.remove('modal--open');
+function closeModal() {
+  $modal.classList.remove('modal--fade-in');
   setTimeout(() => {
-    $modal.classList.remove('modal--open');
-  }, 500);
-  setTimeout(() => {
-    $loading.classList.remove('modal__overlay--visible');
-    $success.classList.remove('modal__overlay--visible');
-  }, 750);
+    $modalBackdrop.classList.remove('modal__backdrop--visible');
+  }, 500); // must match css transition length
 }
 
-// Click X -> Close Pop Up
-const closeBtn = document.querySelector('.modal__exit-btn');
-closeBtn.addEventListener('click', closemodal);
+$modalBackdrop.addEventListener('click', (e) => {
+  const exitButtonClick = e.target.classList.contains('modal__exit-btn');
+  const outsideModalClick = e.target.classList.contains('modal__backdrop');
+  if (!(exitButtonClick || outsideModalClick)) return;
+  closeModal();
+});
 
-// Click outside of pop up -> close pop up
-const outsidePop = document.querySelector('.modal__wrapper');
-outsidePop.addEventListener('click', closemodal);
+/**
+ * DARK MODE
+ */
 
-/*
-
-    DARK MODE
-
-*/
-
-const toggleButton = document.querySelector('#btn__dark-mode');
-
-toggleButton.addEventListener('click', () => {
+$toggleDarkModeBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark');
 });
 
-/*
+/**
+ * CONTACT FORM
+ */
+// TODO: fix submit logic
+$contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  $modalLoading.classList.add('modal__overlay--visible');
 
-    CONTACT FORM
-
-*/
-
-// Submit Contact Form
-
-$contactForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  $loading.classList.add('modal__overlay--visible');
-
-  emailjs
-    .sendForm('service_vbc5994', 'template_x9t7sqw', event.target, 'fF_O7kEQetQW4I_Lt')
-    .then(() => {
-      $loading.classList.remove('modal__overlay--visible');
-      $success.classList.add('modal__overlay--visible');
-      $contactForm.reset();
-    })
-    .catch(() => {
-      $loading.classList.remove('modal__overlay--visible');
-      alert(
-        'The email service is temporarily unavailable. Please contact me directly at jaden@bertinofamily.com'
-      );
-    });
+  try {
+    // email.js comes from html sdk
+    emailjs.sendForm('service_vbc5994', 'template_x9t7sqw', e.target, 'fF_O7kEQetQW4I_Lt');
+    $modalLoading.classList.remove('modal__overlay--visible');
+    $modalSuccess.classList.add('modal__overlay--visible');
+    $contactForm.reset();
+  } catch (err) {
+    $modalLoading.classList.remove('modal__overlay--visible');
+    alert(
+      'The email service is temporarily unavailable. Please contact me directly at jaden@bertinofamily.com'
+    );
+  }
 });
 
-/*
-
-  BACKGROUND DECORATIONS
-
-*/
-
+/**
+ * BACKGROUND DECORATIONS
+ */
 const moveFactor = 1 / 20;
 const rotateFactor = 10;
 const shapes = document.querySelectorAll('.shape');
@@ -114,6 +88,7 @@ document.body.addEventListener('mousemove', (event) => {
   for (let i = 0; i < shapes.length; i++) {
     const isOdd = i % 2 === 1;
     const direction = isOdd ? -1 : 1;
-    shapes[i].style.transform = `translate(${x * direction}px, ${y * direction}px) rotate(${x * rotateFactor}deg)`;
+    shapes[i].style.transform = 
+      `translate(${x * direction}px, ${y * direction}px) rotate(${x * rotateFactor}deg)`;
   }
 });

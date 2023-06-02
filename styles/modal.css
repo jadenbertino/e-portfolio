@@ -1,13 +1,16 @@
 /* LAYOUT */
 
 .modal__backdrop {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
+  z-index: 999;
 
-  /* z-index: -1; */
+  /* inactive */
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .modal {
@@ -15,24 +18,48 @@
   width: 90%;
   height: 700px;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 18px;
   overflow: hidden;
-  /* opacity: 0; */
+  left: 50%;
+  top: 50%;
+  /* to center, not to animate */
+  transform: translate(-50%, -50%);
 
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
+  /* inactive */
+  opacity: 0;
   transition: opacity 500ms ease;
+}
 
-  /* z-index: -1; */
+.modal--fade-in {
+  opacity: 1;
+}
+
+.modal__backdrop--visible {
+  visibility: visible;
+  pointer-events: all;
+}
+
+.col.profile {
+  background-color: #f5f5f5;
+  transform: translateX(-100%);
+  transition: transform 500ms ease;
+}
+
+.col.contact {
+  background-color: #242424;
+  transform: translateX(100%);
+  transition: transform 500ms ease;
+}
+
+.modal--fade-in .col.contact,
+.modal--fade-in .col.profile {
+  transform: translateX(0);
 }
 
 .modal .row {
   display: flex;
   padding: 0;
+  height: 100%;
 }
 
 .modal .col {
@@ -55,14 +82,10 @@
 .modal__exit-btn i {
   font-size: 2.5rem;
   color: #f5f5f5;
+  pointer-events: none;
 }
 
 /* LEFT COLUMN */
-
-.col.profile {
-  background-color: #f5f5f5;
-  /* transform: translateX(-100%); */
-}
 
 /* PROFILE */
 
@@ -127,11 +150,6 @@
 }
 
 /* RIGHT COLUMN */
-
-.col.contact {
-  background-color: #242424;
-  /* transform: translateX(100%); */
-}
 
 .col.contact * {
   color: white;
@@ -238,33 +256,20 @@
 
 /* wip */
 
-.modal--open {
-  z-index: 1;
-}
-
-.modal--opacity {
-  opacity: 1;
-}
-
-.modal--open #nav,
-.modal--open .header__container,
-.modal--open .scroll {
-  opacity: 0;
-}
-
 #nav,
 .header__container,
 .scroll {
   transition: opacity 750ms ease;
 }
 
-.modal--opacity .modal__col--left,
-.modal--opacity .modal__col--right {
-  transform: translateX(0);
+.fade-in #nav,
+.fade-in .header__container,
+.fade-in .scroll {
+  opacity: 0;
 }
 
 @media (max-width: 768px) {
-  .modal--opacity .modal {
+  .fade-in .modal {
     width: 100%;
     top: 0;
     left: 0;

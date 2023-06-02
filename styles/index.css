@@ -28,6 +28,11 @@ body {
   overflow-x: hidden;
 }
 
+body:has(.modal__backdrop--visible) {
+  /* prevent scroll while modal is open */
+  overflow: hidden;
+}
+
 a,
 a:visited {
   text-decoration: none;

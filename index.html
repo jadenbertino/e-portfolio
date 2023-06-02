@@ -19,7 +19,7 @@
       })();
     </script>
   </head>
-  <body class="modal--opacity modal--open">
+  <body> 
     <section id="landing">
       <nav id="nav" class="row">
         <img src="./assets/logo-full-black-crop.png" class="nav__logo nav__logo--black" alt="" />
@@ -319,7 +319,7 @@
           <div class="col contact">
             <h3 class='contact__title'>Let's grab a virtual coffee! ☕</h3>
             <h4 class='contact__sub-title'>Send me a message below and we can chat :)</h4>
-            <form action='' class='contact-form'>
+            <form id='contact-form' class='contact-form'>
               <div class="form-item">
                 <label class="form-item__label">Name</label>
                 <input type="text" name="name" class="form-item__input" required />
@@ -339,14 +339,14 @@
         <button class='modal__exit-btn'>
           <i class="btn__hover-effect fas fa-times"></i>
         </button>
-      </div>
-      <div class="modal__overlay modal__overlay--loading">
-        <i class="fas fa-spinner"></i>
-      </div>
-      <div class="modal__overlay modal__overlay--success">
-        Thanks for the message!
-        <br />
-        Looking forward to speaking to you soon.
+        <div class="modal__overlay modal__overlay--loading">
+          <i class="fas fa-spinner"></i>
+        </div>
+        <div class="modal__overlay modal__overlay--success">
+          Thanks for the message!
+          <br />
+          Looking forward to speaking to you soon.
+        </div>
       </div>
     </div>
     <!-- <div class="modal__backdrop">
