@@ -1,6 +1,7 @@
 
 header {
   height: calc(100vh - 100px);
+  pointer-events: none;
 }
 
 .header__container {

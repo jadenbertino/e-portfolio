@@ -1,8 +1,8 @@
-const popupWrapper = document.querySelector('.popup__wrapper');
-const popup = document.querySelector('.popup');
-const contactForm = document.querySelector('#contact__form');
-const loading = document.querySelector('.popup__overlay--loading');
-const success = document.querySelector('.popup__overlay--success');
+const $modalWrapper = document.querySelector('.modal__wrapper');
+const $modal = document.querySelector('.modal');
+const $contactForm = document.querySelector('#contact__form');
+const $loading = document.querySelector('.modal__overlay--loading');
+const $success = document.querySelector('.modal__overlay--success');
 
 /*
 
@@ -10,8 +10,8 @@ const success = document.querySelector('.popup__overlay--success');
 
 */
 
-// btns that open popup
-const popupStarters = [
+// btns that open modal
+const modalStarters = [
   document.querySelector('#nav__about'),
   document.querySelector('#nav__contact'),
   document.querySelector('#social__btn--contact'),
@@ -21,15 +21,14 @@ const popupStarters = [
 ];
 
 // add event listeners to said btns
-for (let btn of popupStarters) {
+for (let btn of modalStarters) {
   btn.addEventListener('click', () => {
-    popupWrapper.classList.add('popup--open');
-    // separate because need a delay between them when removing later on
-    popup.classList.add('popup--open');
-    popup.classList.add('popup--opacity');
+    $modalWrapper.classList.add('modal--open');
+    $modal.classList.add('modal--open');
+    $modal.classList.add('modal--opacity');
 
-    // hide heading + nav when popup is open
-    document.body.classList.add('hide');
+    // hide heading + nav when modal is open
+    // document.body.classList.add('hide');
   });
 }
 
@@ -39,26 +38,25 @@ for (let btn of popupStarters) {
 
 */
 
-function closePopUp() {
-  popup.classList.remove('popup--opacity');
-  popupWrapper.classList.remove('popup--open');
+function closemodal() {
+  $modal.classList.remove('modal--opacity');
+  $modalWrapper.classList.remove('modal--open');
   setTimeout(() => {
-    popup.classList.remove('popup--open');
+    $modal.classList.remove('modal--open');
   }, 500);
   setTimeout(() => {
-    loading.classList.remove('popup__overlay--visible');
-    success.classList.remove('popup__overlay--visible');
-    document.body.classList.remove('hide');
+    $loading.classList.remove('modal__overlay--visible');
+    $success.classList.remove('modal__overlay--visible');
   }, 750);
 }
 
 // Click X -> Close Pop Up
-const closeBtn = document.querySelector('.popup__exit-btn');
-closeBtn.addEventListener('click', closePopUp);
+const closeBtn = document.querySelector('.modal__exit-btn');
+closeBtn.addEventListener('click', closemodal);
 
 // Click outside of pop up -> close pop up
-const outsidePop = document.querySelector('.popup__wrapper');
-outsidePop.addEventListener('click', closePopUp);
+const outsidePop = document.querySelector('.modal__wrapper');
+outsidePop.addEventListener('click', closemodal);
 
 /*
 
@@ -80,20 +78,20 @@ toggleButton.addEventListener('click', () => {
 
 // Submit Contact Form
 
-contactForm.addEventListener('submit', (event) => {
+$contactForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  loading.classList.add('popup__overlay--visible');
+  $loading.classList.add('modal__overlay--visible');
 
   emailjs
     .sendForm('service_vbc5994', 'template_x9t7sqw', event.target, 'fF_O7kEQetQW4I_Lt')
     .then(() => {
-      loading.classList.remove('popup__overlay--visible');
-      success.classList.add('popup__overlay--visible');
-      contactForm.reset();
+      $loading.classList.remove('modal__overlay--visible');
+      $success.classList.add('modal__overlay--visible');
+      $contactForm.reset();
     })
     .catch(() => {
-      loading.classList.remove('popup__overlay--visible');
+      $loading.classList.remove('modal__overlay--visible');
       alert(
         'The email service is temporarily unavailable. Please contact me directly at jaden@bertinofamily.com'
       );
