@@ -1,5 +1,4 @@
 const $modalBackdrop = document.querySelector('.modal__backdrop');
-const $modal = document.querySelector('.modal');
 const $modalLoading = document.querySelector('.modal__overlay--loading');
 const $modalSuccess = document.querySelector('.modal__overlay--success');
 const $modalStarters = [
@@ -11,39 +10,56 @@ const $modalStarters = [
 const $closeModalBtn = document.querySelector('.modal__exit-btn');
 const $toggleDarkModeBtn = document.querySelector('#btn__dark-mode');
 const $contactForm = document.querySelector('#contact-form');
+const $main = document.querySelector('main');
 
-/**
- * OPEN MODAL
- */
-
-function openModal() {
-  $modalBackdrop.classList.add('modal__backdrop--visible');
-  setTimeout(() => {
-    $modal.classList.add('modal--fade-in');
-  }); // must do on a separate event loop
+function delay(ms) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
 }
 
+/**
+ * MODAL
+ */
+
+function fadeIn($) {
+  $.classList.add('visible');
+  setTimeout(() => {
+    // must do on separate event loop for smooth transition
+    $.classList.add('fade-in');
+  });
+}
+
+function fadeOut($, transitionTime = 500) {
+  $.classList.remove('fade-in');
+  setTimeout(() => {
+    $.classList.remove('visible');
+  }, transitionTime);
+}
+
+function openModal() {
+  fadeIn($modalBackdrop);
+  fadeOut($main);
+}
+
+function closeModal() {
+  fadeOut($modalBackdrop);
+  setTimeout(() => {
+    fadeIn($main);
+  }, 500); // small delay before fading landing back in
+}
 $modalStarters.forEach(($btn) => {
   $btn.addEventListener('click', openModal);
 });
 
-/**
- * CLOSE MODAL
- */
-
-function closeModal() {
-  $modal.classList.remove('modal--fade-in');
-  setTimeout(() => {
-    $modalBackdrop.classList.remove('modal__backdrop--visible');
-  }, 500); // must match css transition length
-}
-
-$modalBackdrop.addEventListener('click', (e) => {
+function handleClose(e) {
   const exitButtonClick = e.target.classList.contains('modal__exit-btn');
   const outsideModalClick = e.target.classList.contains('modal__backdrop');
   if (!(exitButtonClick || outsideModalClick)) return;
   closeModal();
-});
+}
+
+$modalBackdrop.addEventListener('click', handleClose);
 
 /**
  * DARK MODE
@@ -56,22 +72,45 @@ $toggleDarkModeBtn.addEventListener('click', () => {
 /**
  * CONTACT FORM
  */
-// TODO: fix submit logic
-$contactForm.addEventListener('submit', (e) => {
+
+$contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  $modalLoading.classList.add('modal__overlay--visible');
+  const formData = new FormData(e.target);
+  formData.append('service_id', 'service_66c3ltm');
+  formData.append('template_id', 'template_x9t7sqw');
+  formData.append('user_id', 'fF_O7kEQetQW4I_Lt');
 
   try {
-    // email.js comes from html sdk
-    emailjs.sendForm('service_vbc5994', 'template_x9t7sqw', e.target, 'fF_O7kEQetQW4I_Lt');
-    $modalLoading.classList.remove('modal__overlay--visible');
-    $modalSuccess.classList.add('modal__overlay--visible');
+    const response = await fetch("https://api.emailjs.com/api/v1.0/email/send-form", {
+      method: "POST",
+      body: formData
+    })
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+
+    fadeIn($modalLoading);
+    await delay(1500);
+    fadeOut($modalLoading);
+    fadeIn($modalSuccess);
+    await delay(3000);
+    
     $contactForm.reset();
+    fadeOut($modalSuccess);
+    fadeOut($modalBackdrop);
+    await delay(750)
+
+    fadeIn($main);
   } catch (err) {
-    $modalLoading.classList.remove('modal__overlay--visible');
+    console.error(err);
     alert(
-      'The email service is temporarily unavailable. Please contact me directly at jaden@bertinofamily.com'
+      `The email service is temporarily unavailable. Please contact me directly at jaden@bertinofamily.com`
     );
+    fadeOut($modalLoading)
+    fadeOut($modalSuccess)
+    fadeOut($modalBackdrop)
+    await delay(750)
+    fadeIn($main)
   }
 });
 
@@ -88,7 +127,8 @@ document.body.addEventListener('mousemove', (event) => {
   for (let i = 0; i < shapes.length; i++) {
     const isOdd = i % 2 === 1;
     const direction = isOdd ? -1 : 1;
-    shapes[i].style.transform = 
-      `translate(${x * direction}px, ${y * direction}px) rotate(${x * rotateFactor}deg)`;
+    shapes[i].style.transform = `translate(${x * direction}px, ${y * direction}px) rotate(${
+      x * rotateFactor
+    }deg)`;
   }
 });

@@ -28,9 +28,15 @@ body {
   overflow-x: hidden;
 }
 
-body:has(.modal__backdrop--visible) {
+body:has(.modal__backdrop.fade-in) {
   /* prevent scroll while modal is open */
   overflow: hidden;
+}
+
+main {
+  /* to transition out when modal is active */
+  opacity: 0;
+  transition: opacity 750ms ease;
 }
 
 a,
