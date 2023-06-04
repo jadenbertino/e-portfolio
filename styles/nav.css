@@ -38,10 +38,6 @@ nav {
 }
 
 @media screen and (max-width: 480px) {
-  .nav__links--list-item:first-child {
-    display: none;
-  }
-
   .nav__logo {
     width: 48px;
   }

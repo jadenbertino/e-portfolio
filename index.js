@@ -6,8 +6,8 @@ const $modalStarters = [
   document.querySelector('#social__btn--contact'),
   document.querySelector('#footer__contact'),
   document.querySelector('.mail__btn'),
+  document.querySelector('#about-me')
 ];
-const $closeModalBtn = document.querySelector('.modal__exit-btn');
 const $toggleDarkModeBtn = document.querySelector('#btn__dark-mode');
 const $contactForm = document.querySelector('#contact-form');
 const $main = document.querySelector('main');
@@ -19,22 +19,15 @@ function delay(ms) {
 }
 
 /**
- * MODAL
+ * OPEN MODAL
  */
 
-function fadeIn($) {
-  $.classList.add('visible');
+function fadeIn($element) {
+  $element.classList.add('visible');
   setTimeout(() => {
     // must do on separate event loop for smooth transition
-    $.classList.add('fade-in');
+    $element.classList.add('fade-in');
   });
-}
-
-function fadeOut($, transitionTime = 500) {
-  $.classList.remove('fade-in');
-  setTimeout(() => {
-    $.classList.remove('visible');
-  }, transitionTime);
 }
 
 function openModal() {
@@ -42,15 +35,28 @@ function openModal() {
   fadeOut($main);
 }
 
+$modalStarters.forEach(($element) => {
+  $element.addEventListener('click', openModal);
+});
+
+/**
+ * CLOSE MODAL
+ */
+
+function fadeOut($element, transitionTime = 500) {
+  $element.classList.remove('fade-in');
+  setTimeout(() => {
+    $element.classList.remove('visible');
+  }, transitionTime);
+}
+
+
 function closeModal() {
   fadeOut($modalBackdrop);
   setTimeout(() => {
     fadeIn($main);
   }, 500); // small delay before fading landing back in
 }
-$modalStarters.forEach(($btn) => {
-  $btn.addEventListener('click', openModal);
-});
 
 function handleClose(e) {
   const exitButtonClick = e.target.classList.contains('modal__exit-btn');

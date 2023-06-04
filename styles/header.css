@@ -63,7 +63,7 @@ header {
   border-radius: 50%;
   overflow: hidden;
   border: none;
-  z-index: 100;
+  z-index: 50;
 }
 
 .mail__icon {
@@ -120,6 +120,6 @@ header {
 
 @media screen and (max-width: 480px) {
   .header__title {
-    font-size: 64px;
+    font-size: 52px;
   }
 }
