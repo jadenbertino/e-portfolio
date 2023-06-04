@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/index.css" />
     <script src="index.js" defer></script>
     <script src="https://kit.fontawesome.com/ba6fc831d0.js" crossorigin="anonymous"></script>
     <title>Jaden Bertino</title>
@@ -13,334 +13,353 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
     ></script>
-    <script type="text/javascript">
-      (function () {
-        emailjs.init('fF_O7kEQetQW4I_Lt');
-      })();
-    </script>
   </head>
   <body>
-    <section id="landing">
-      <nav id="nav" class="row">
-        <figure class="nav__logo">
-          <img src="./assets/logo-full-black-crop.png" class="nav__logo--black" alt="" />
-        </figure>
-        <ul class="nav__links--list">
-          <li class="nav__links--list-item">
-            <a
-              href="#"
-              id="nav__about"
-              class="nav__links--anchor link__hover-effect link__hover-effect--black"
-            >
-              About
-            </a>
-          </li>
-          <li class="nav__links--list-item">
-            <a
-              href="#projects"
-              class="nav__links--anchor link__hover-effect link__hover-effect--black"
-            >
-              Projects
-            </a>
-          </li>
-          <li class="nav__links--list-item">
-            <a
-              href="#"
-              id="nav__contact"
-              class="nav__links--anchor link__hover-effect link__hover-effect--black"
-            >
-              Contact
-            </a>
-          </li>
-          <li class="nav__links--list-item">
-            <a
-              href="#"
-              class="nav__links--anchor nav__links--dark-mode-btn link__hover-effect link__hover-effect--black"
-            >
-              <i
-                id="btn__dark-mode"
-                class="btn__hover-effect fa-solid fa-circle-half-stroke fa-lg"
-              ></i>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <header>
-        <div class="row header__container">
-          <h1 class="header__title">
-            Hey,
-            <br />
-            <span class="purple">I'm Jaden.</span>
-          </h1>
-          <p class="header__para">
-            I'm a
-            <span class="purple bold">Frontend Software Engineer</span> with a passion for building
-            web applications with great user experiences.
-            <br />
-            Here's a bit more <a class="purple bold about-me">about me.</a>
-          </p>
-          <div class="social__list">
-            <a
-              href="https://www.linkedin.com/in/jaden-bertino/"
-              target="_blank"
-              class="social__btn btn__hover-effect"
-            >
-              <i class="social__icon fa-brands fa-linkedin-in"></i>
-            </a>
-            <a
-              href="https://github.com/jadenbertino"
-              target="_blank"
-              class="social__btn btn__hover-effect"
-            >
-              <i class="social__icon fa-brands fa-github"></i>
-            </a>
-            <a class="social__btn btn__hover-effect" id="social__btn--contact">
-              <i class="social__icon fa-solid fa-envelope"></i>
-            </a>
-          </div>
-        </div>
-      </header>
-      <div class="popup__wrapper"></div>
-      <div class="popup shadow">
-        <div class="popup__half popup__half--left">
-          <figure class="popup__img--wrapper">
-            <img src="./assets/headshot.JPG" class="popup__img" alt="" />
-          </figure>
-          <h3 class="popup__title">Here's a bit about me. . .</h3>
-          <p class="popup__para">
-            I'm a
-            <span class="purple bold">frontend software engineer</span> with vast experience
-            creating websites using
-            <span class="bold">HTML, CSS, and JavaScript.</span>
-            <br /><br />
-            I take pride in crafting
-            <span class="bold">mobile-responsive</span> designs that deliver
-            <span class="bold">delightful user experiences</span>. 😀
-          </p>
-          <div class="popup__languages">
-            <figure class="popup__language--wrapper">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
-                alt=""
-                class="popup__language"
-              />
-              <span class="popup__language--name">HTML</span>
-            </figure>
-            <figure class="popup__language--wrapper">
-              <img
-                src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png"
-                alt=""
-                class="popup__language"
-              />
-              <span class="popup__language--name">CSS</span>
-            </figure>
-            <figure class="popup__language--wrapper">
-              <img
-                src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
-                alt=""
-                class="popup__language"
-              />
-              <span class="popup__language--name">JavaScript</span>
-            </figure>
-            <figure class="popup__language--wrapper">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1200px-Bootstrap_logo.svg.png"
-                alt=""
-                class="popup__language"
-              />
-              <span class="popup__language--name">Bootstrap</span>
-            </figure>
-          </div>
-        </div>
-        <div class="popup__half popup__half--right">
-          <a>
-            <i class="popup__exit-btn btn__hover-effect fas fa-times"></i>
-          </a>
-          <h3 class="popup__title">Let's grab a virtual coffee! ☕</h3>
-          <h4 class="popup__sub-title">Send me a message below and we can chat :)</h4>
-          <form id="contact__form">
-            <div class="form__item">
-              <label class="form__item--label">Name</label>
-              <input type="text" name="name" class="form__item--input" required />
-            </div>
-            <div class="form__item">
-              <label class="form__item--label">Email</label>
-              <input type="text" name="email" class="form__item--input" required />
-            </div>
-            <div class="form__item">
-              <label class="form__item--label">Message</label>
-              <textarea type="text" name="message" class="form__item--input" required></textarea>
-            </div>
-            <button id="contact__submit" class="form__submit">Send it my way</button>
-          </form>
-          <div class="popup__overlay popup__overlay--loading">
-            <i class="fas fa-spinner"></i>
-          </div>
-          <div class="popup__overlay popup__overlay--success">
-            Thanks for the message!
-            <br />
-            Looking forward to speaking to you soon.
-          </div>
-        </div>
-      </div>
-      <a href="#landing">
-        <button class="mail__btn btn__hover-effect shadow--light">
-          <i class="mail__icon fa-solid fa-envelope fa-2xl"></i>
-        </button>
-      </a>
-      <a href="#projects" class="scroll">
-        <div class="scroll__icon btn__hover-effect"></div>
-      </a>
-      <div class="background-decorations">
-        <img src="./assets/background-shapes/semi-circle.svg" class="shape shape--semi-circle shape--0" />
-        <img src="./assets/background-shapes/circle.svg" class="shape shape--circle shape--1" />
-        <img src="./assets/background-shapes/squiggly.svg" class="shape shape--squiggly shape--2" />
-        <img src="./assets/background-shapes/circle.svg" class="shape shape--circle shape--3" />
-        <img src="./assets/background-shapes/triangle.svg" class="shape shape--triangle shape--4" />
-        <img src="./assets/background-shapes/circle.svg" class="shape shape--circle shape--5" />
-        <img src="./assets/background-shapes/squiggly.svg" class="shape shape--squiggly shape--6" />
-        <img src="./assets/background-shapes/circle.svg" class="shape shape--circle shape--7" />
-        <img src="./assets/background-shapes/semi-circle.svg" class="shape shape--semi-circle shape--8" />
-      </div>
-    </section>
-    <section id="projects">
-      <div class="container">
-        <div class="row row--projects">
-          <h2 class="section__title">Here are some of my <span class="purple">projects</span></h2>
-          <div class="projects__list">
-            <div class="project shadow" id="library">
-              <figure class="project__img">
-                <img src="./assets/project-ecom.png" alt="" />
-              </figure>
-              <div class="project__background"></div>
-              <div class="project__description">
-                <h3 class="project__description--title">Level Up Library</h3>
-                <h4 class="project__description--sub-title">React, JavaScript, HTML & CSS</h4>
-                <p class="project__description--para">
-                  Mock E-Commerce bookstore that helps users find new "self-help" books to read.
-                  <br />
-                  The mockup features a modern interface and a mobile responsive design.
-                  <br />
-                  The site makes use of css animations and a mobile hamburger menu.
-                  <br />
-                  Click the link below to see the full mockup!
-                </p>
-                <div class="project__description--links">
-                  <a href="https://level-up-library.web.app/" target="_blank">
-                    <i
-                      class="project__description--link btn__hover-effect fa-solid fa-link fa-xl"
-                    ></i>
-                  </a>
-                  <a href="https://github.com/jadenbertino/level-up-library" target="_blank">
-                    <i
-                      class="project__description--link btn__hover-effect fa-brands fa-github fa-xl"
-                    ></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project shadow" id="calendar">
-              <figure class="project__img">
-                <img src="./assets/project-calendar.png" alt="" />
-              </figure>
-              <div class="project__background"></div>
-              <div class="project__description">
-                <h3 class="project__description--title">Hourglass Calendar</h3>
-                <h4 class="project__description--sub-title">React, Firebase, Javascript</h4>
-                <p class="project__description--para">
-                  Responsive calendar to stay organized amongst the chaos of life
-                  <br />
-                  This app uses Firebase authentication to ensure each user's events stay private.
-                  <br />
-                  It also features Firestore so that the user's events sync among all their devices.
-                </p>
-                <div class="project__description--links">
-                  <a href="https://hourglass-calendar.web.app/" target="_blank">
-                    <i
-                      class="project__description--link btn__hover-effect fa-solid fa-link fa-xl"
-                    ></i>
-                  </a>
-                  <a href="https://github.com/jadenbertino/hourglass-calendar" target="_blank">
-                    <i
-                      class="project__description--link btn__hover-effect fa-brands fa-github fa-xl"
-                    ></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project shadow" id="treact">
-              <figure class="project__img project__img--zoom">
-                <img src="./assets/project-treact.png" alt="" />
-              </figure>
-              <div class="project__background"></div>
-              <div class="project__description">
-                <h3 class="project__description--title">Treact</h3>
-                <h4 class="project__description--sub-title">Html, CSS, JavaScript</h4>
-                <p class="project__description--para">
-                  This is a mockup of Treact, a website that sells modern React templates.
-                  <br />
-                  It features a modern interface and is fully mobile responsive.
-                  <br />
-                  The site makes use of a responsive flexbox layout and a hamburger menu.
-                  <br />
-                  Click the link below to see the full mockup!
-                </p>
-                <div class="project__description--links">
-                  <a href="https://jadenbertino.github.io/treact/" target="_blank">
-                    <i
-                      class="project__description--link btn__hover-effect fa-solid fa-link fa-xl"
-                    ></i>
-                  </a>
-                  <a href="https://github.com/jadenbertino/treact" target="_blank">
-                    <i
-                      class="project__description--link btn__hover-effect fa-brands fa-github fa-xl"
-                    ></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <div class="footer__container">
-        <div class="footer__row">
-          <figure class="footer__logo--wrapper">
-            <img src="./assets/logo-full-white-crop.png" alt="" />
-            <div class="footer__scroll-up">
-              <a class="footer__scroll-up__text" href="#landing">
-                Top
-                <i class="footer__scroll-up__arrow fa-solid fa-arrow-up"></i>
+    <main class="fade-in">
+      <section id="landing">
+        <nav id="nav" class="row">
+          <img src="./assets/logo-full-black-crop.png" class="nav__logo nav__logo--black" alt="" />
+          <ul class="nav__links--list">
+            <li class="nav__links--list-item">
+              <a
+                href="#projects"
+                class="nav__links--anchor link__hover-effect link__hover-effect--black"
+              >
+                Projects
+              </a>
+            </li>
+            <li class="nav__links--list-item">
+              <a
+                href="#"
+                id="nav__contact"
+                class="nav__links--anchor link__hover-effect link__hover-effect--black"
+              >
+                Contact
+              </a>
+            </li>
+            <li class="nav__links--list-item">
+              <a
+                href="#"
+                class="nav__links--anchor nav__links--dark-mode-btn link__hover-effect link__hover-effect--black"
+              >
+                <i
+                  id="btn__dark-mode"
+                  class="btn__hover-effect fa-solid fa-circle-half-stroke fa-lg"
+                ></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <header>
+          <div class="row header__container">
+            <h1 class="header__title">
+              Hey,
+              <br />
+              <span class="purple">I'm Jaden.</span>
+            </h1>
+            <p class="header__para">
+              I'm a
+              <span class="purple bold">Frontend Software Engineer</span> with a passion for
+              building web applications with great user experiences.
+              <br />
+              Here's a bit more <a id="about-me" class="purple bold about-me">about me.</a>
+            </p>
+            <div class="social__list">
+              <a
+                href="https://www.linkedin.com/in/jaden-bertino/"
+                target="_blank"
+                class="social__btn btn__hover-effect"
+              >
+                <i class="social__icon fa-brands fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://github.com/jadenbertino"
+                target="_blank"
+                class="social__btn btn__hover-effect"
+              >
+                <i class="social__icon fa-brands fa-github"></i>
+              </a>
+              <a class="social__btn btn__hover-effect" id="social__btn--contact">
+                <i class="social__icon fa-solid fa-envelope"></i>
               </a>
             </div>
-          </figure>
-          <div class="social__links">
-            <a
-              href="https://github.com/jadenbertino"
-              target="_blank"
-              class="social__link link__hover-effect link__hover-effect--white"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/jaden-bertino/"
-              target="_blank"
-              class="social__link link__hover-effect link__hover-effect--white"
-            >
-              LinkedIn
-            </a>
-            <a
-              id="footer__contact"
-              href="#landing"
-              class="social__link link__hover-effect link__hover-effect--white"
-            >
-              Contact
-            </a>
           </div>
-          <div class="footer__copyright">Copyright © 2022 Jaden Bertino</div>
+        </header>
+        <a href="#landing">
+          <button class="mail__btn btn__hover-effect shadow--light">
+            <i class="mail__icon fa-solid fa-envelope fa-2xl"></i>
+          </button>
+        </a>
+        <a href="#projects" class="scroll">
+          <div class="scroll__icon btn__hover-effect"></div>
+        </a>
+      </section>
+      <section id="projects">
+        <div class="container">
+          <div class="row row--projects">
+            <h2 class="section__title">Here are some of my <span class="purple">projects</span></h2>
+            <div class="projects__list">
+              <div class="project shadow" id="library">
+                <figure class="project__img">
+                  <img src="./assets/project-ecom.png" alt="" />
+                </figure>
+                <div class="project__background"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Level Up Library</h3>
+                  <h4 class="project__description--sub-title">React, JavaScript, HTML & CSS</h4>
+                  <p class="project__description--para">
+                    Mock E-Commerce bookstore that helps users find new "self-help" books to read.
+                    <br />
+                    The mockup features a modern interface and a mobile responsive design.
+                    <br />
+                    The site makes use of css animations and a mobile hamburger menu.
+                    <br />
+                    Click the link below to see the full mockup!
+                  </p>
+                  <div class="project__description--links">
+                    <a href="https://level-up-library.web.app/" target="_blank">
+                      <i
+                        class="project__description--link btn__hover-effect fa-solid fa-link fa-xl"
+                      ></i>
+                    </a>
+                    <a href="https://github.com/jadenbertino/level-up-library" target="_blank">
+                      <i
+                        class="project__description--link btn__hover-effect fa-brands fa-github fa-xl"
+                      ></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="project shadow" id="calendar">
+                <figure class="project__img">
+                  <img src="./assets/project-calendar.png" alt="" />
+                </figure>
+                <div class="project__background"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Hourglass Calendar</h3>
+                  <h4 class="project__description--sub-title">React, Firebase, Javascript</h4>
+                  <p class="project__description--para">
+                    Responsive calendar to stay organized amongst the chaos of life
+                    <br />
+                    This app uses Firebase authentication to ensure each user's events stay private.
+                    <br />
+                    It also features Firestore so that the user's events sync among all their
+                    devices.
+                  </p>
+                  <div class="project__description--links">
+                    <a href="https://hourglass-calendar.web.app/" target="_blank">
+                      <i
+                        class="project__description--link btn__hover-effect fa-solid fa-link fa-xl"
+                      ></i>
+                    </a>
+                    <a href="https://github.com/jadenbertino/hourglass-calendar" target="_blank">
+                      <i
+                        class="project__description--link btn__hover-effect fa-brands fa-github fa-xl"
+                      ></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="project shadow" id="treact">
+                <figure class="project__img project__img--zoom">
+                  <img src="./assets/project-treact.png" alt="" />
+                </figure>
+                <div class="project__background"></div>
+                <div class="project__description">
+                  <h3 class="project__description--title">Treact</h3>
+                  <h4 class="project__description--sub-title">Html, CSS, JavaScript</h4>
+                  <p class="project__description--para">
+                    This is a mockup of Treact, a website that sells modern React templates.
+                    <br />
+                    It features a modern interface and is fully mobile responsive.
+                    <br />
+                    The site makes use of a responsive flexbox layout and a hamburger menu.
+                    <br />
+                    Click the link below to see the full mockup!
+                  </p>
+                  <div class="project__description--links">
+                    <a href="https://jadenbertino.github.io/treact/" target="_blank">
+                      <i
+                        class="project__description--link btn__hover-effect fa-solid fa-link fa-xl"
+                      ></i>
+                    </a>
+                    <a href="https://github.com/jadenbertino/treact" target="_blank">
+                      <i
+                        class="project__description--link btn__hover-effect fa-brands fa-github fa-xl"
+                      ></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="footer__container">
+          <div class="footer__row">
+            <figure class="footer__logo--wrapper">
+              <img src="./assets/logo-full-white-crop.png" alt="" />
+              <div class="footer__scroll-up">
+                <a class="footer__scroll-up__text" href="#landing">
+                  Top
+                  <i class="footer__scroll-up__arrow fa-solid fa-arrow-up"></i>
+                </a>
+              </div>
+            </figure>
+            <div class="social__links">
+              <a
+                href="https://github.com/jadenbertino"
+                target="_blank"
+                class="social__link link__hover-effect link__hover-effect--white"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jaden-bertino/"
+                target="_blank"
+                class="social__link link__hover-effect link__hover-effect--white"
+              >
+                LinkedIn
+              </a>
+              <a
+                id="footer__contact"
+                href="#landing"
+                class="social__link link__hover-effect link__hover-effect--white"
+              >
+                Contact
+              </a>
+            </div>
+            <div class="footer__copyright">Copyright © 2022 Jaden Bertino</div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <div class="modal__backdrop start-hidden visible fade-in">
+      <div class="modal shadow">
+        <div class="row">
+          <div class="col profile">
+            <div class='profile__img-container'>
+              <div class="profile__img-wrapper">
+                <img src="./assets/headshot.JPG" alt="" class="profile__img" />
+              </div>
+              <button class="modal__exit-btn mobile">
+                <i class="btn__hover-effect fas fa-times"></i>
+              </button>
+            </div>
+            <h3 class="profile__title">Here's a bit about me...</h3>
+            <p class="profile__bio desktop">
+              I'm a
+              <span class="purple bold">frontend software engineer</span>
+              with vast experience creating websites using
+              <span class="bold">HTML, CSS, and JavaScript.</span>
+            </p>
+            <p class="profile__bio desktop">
+              I take pride in crafting
+              <span class="bold">mobile-responsive</span> designs that deliver
+              <span class="bold">delightful user experiences</span>. 😀
+            </p>
+            <p class="profile__bio mobile">
+              I'm a
+              <span class="purple bold">frontend software engineer</span>
+              who loves crafting
+              <span class="bold purple">beautiful</span>
+              and
+              <span class="bold purple">mobile response</span>
+              applications.
+            </p>
+            <p class='profile__bio mobile'>
+              I'm familiar with <span class='bold purple'>modern tech stacks</span> like React, JavaScript, Bootstrap, and more. 
+            </p>
+            <div class="languages desktop">
+              <div class="language__wrapper">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
+                  alt=""
+                  class="language__img"
+                />
+                <span class="language__name">HTML</span>
+              </div>
+              <div class="language__wrapper">
+                <img
+                  src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png"
+                  alt=""
+                  class="language__img"
+                />
+                <span class="language__name">CSS</span>
+              </div>
+              <div class="language__wrapper">
+                <img
+                  src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
+                  alt=""
+                  class="language__img"
+                />
+                <span class="language__name">JavaScript</span>
+              </div>
+              <div class="language__wrapper">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1200px-Bootstrap_logo.svg.png"
+                  alt=""
+                  class="language__img"
+                />
+                <span class="language__name">Bootstrap</span>
+              </div>
+            </div>
+          </div>
+          <div class="col contact expand-vertical--mobile">
+            <h3 class="contact__title">Let's grab a virtual coffee! ☕</h3>
+            <h4 class="contact__sub-title desktop">Send me a message below and we can chat :)</h4>
+            <form id="contact-form" class="contact-form expand-vertical--mobile">
+              <div class="form-item">
+                <label class="form-item__label">Name</label>
+                <input type="text" name="name" class="form-item__input" required />
+              </div>
+              <div class="form-item">
+                <label class="form-item__label">Email</label>
+                <input type="text" name="email" class="form-item__input" required />
+              </div>
+              <div class="form-item expand-vertical--mobile">
+                <label class="form-item__label">Message</label>
+                <textarea type="text" name="message" class="form-item__input form-item__input--textarea expand-vertical--mobile" required></textarea>
+              </div>
+              <button id="contact__submit" class="contact-form__submit">Send it my way</button>
+            </form>
+          </div>
+        </div>
+        <button class="modal__exit-btn desktop">
+          <i class="btn__hover-effect fas fa-times"></i>
+        </button>
+        <div class="modal__overlay modal__overlay--loading start-hidden">
+          <i class="fas fa-spinner"></i>
+        </div>
+        <div class="modal__overlay modal__overlay--success start-hidden">
+          <div>
+            <p>
+              Thanks for the message!
+            </p>
+            <p>
+              Looking forward to speaking with you soon.
+            </p>
+          </div>
         </div>
       </div>
-    </footer>
+    </div>
+    <div class="background-decorations">
+      <img
+        src="./assets/background-shapes/semi-circle.svg"
+        class="shape shape--semi-circle shape--0"
+      />
+      <img src="./assets/background-shapes/circle.svg" class="shape shape--circle shape--1" />
+      <img src="./assets/background-shapes/squiggly.svg" class="shape shape--squiggly shape--2" />
+      <img src="./assets/background-shapes/circle.svg" class="shape shape--circle shape--3" />
+      <img src="./assets/background-shapes/triangle.svg" class="shape shape--triangle shape--4" />
+      <img src="./assets/background-shapes/circle.svg" class="shape shape--circle shape--5" />
+      <img src="./assets/background-shapes/squiggly.svg" class="shape shape--squiggly shape--6" />
+      <img src="./assets/background-shapes/circle.svg" class="shape shape--circle shape--7" />
+      <img
+        src="./assets/background-shapes/semi-circle.svg"
+        class="shape shape--semi-circle shape--8"
+      />
+    </div>
   </body>
 </html>

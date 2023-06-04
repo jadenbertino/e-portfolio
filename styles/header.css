@@ -1,0 +1,125 @@
+header {
+  height: calc(100vh - 100px);
+  z-index: inherit;
+}
+
+.header__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 1100px;
+  width: 100%;
+}
+
+.header__title {
+  font-size: 120px;
+  line-height: 1.125;
+  margin-bottom: 12px;
+}
+
+.header__para {
+  max-width: 450px;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  color: #000000;
+}
+
+.social__list {
+  display: flex;
+  margin-top: 16px;
+}
+
+.social__btn {
+  height: 36px;
+  width: 36px;
+  margin-right: 12px;
+  background-color: #6415ff;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social__icon {
+  color: white;
+}
+
+/*
+
+    EMAIL ENVELOPE & SCROLL
+
+*/
+
+.mail__btn {
+  width: 70px;
+  height: 70px;
+  background-color: #242424;
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: none;
+  z-index: 50;
+}
+
+.mail__icon {
+  color: #ffffff;
+}
+
+.scroll {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll__icon {
+  width: 20px;
+  height: 30px;
+  border: 2px solid #242424;
+  border-radius: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll__icon:after {
+  content: '';
+  width: 4px;
+  height: 6px;
+  background-color: #242424;
+  border-radius: 2px;
+  animation: scroll-wheel 1s infinite alternate-reverse ease-out;
+}
+
+@keyframes scroll-wheel {
+  0% {
+    transform: translateY(3px);
+  }
+
+  100% {
+    transform: translateY(-3px);
+  }
+}
+
+@media (max-width: 768px) {
+  .header__title {
+    font-size: 80px;
+  }
+
+  .header__para {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header__title {
+    font-size: 52px;
+  }
+}

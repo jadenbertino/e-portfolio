@@ -1,111 +1,128 @@
-const popupWrapper = document.querySelector('.popup__wrapper');
-const popup = document.querySelector('.popup');
-const contactForm = document.querySelector('#contact__form');
-const loading = document.querySelector('.popup__overlay--loading');
-const success = document.querySelector('.popup__overlay--success');
-
-/*
-
-    Open Pop Up
-
-*/
-
-// btns that open popup
-const popupStarters = [
-  document.querySelector('#nav__about'),
+const $modalBackdrop = document.querySelector('.modal__backdrop');
+const $modalLoading = document.querySelector('.modal__overlay--loading');
+const $modalSuccess = document.querySelector('.modal__overlay--success');
+const $modalStarters = [
   document.querySelector('#nav__contact'),
   document.querySelector('#social__btn--contact'),
   document.querySelector('#footer__contact'),
   document.querySelector('.mail__btn'),
-  document.querySelector('.about-me'),
+  document.querySelector('#about-me')
 ];
+const $toggleDarkModeBtn = document.querySelector('#btn__dark-mode');
+const $contactForm = document.querySelector('#contact-form');
+const $main = document.querySelector('main');
 
-// add event listeners to said btns
-for (let btn of popupStarters) {
-  btn.addEventListener('click', () => {
-    popupWrapper.classList.add('popup--open');
-    // separate because need a delay between them when removing later on
-    popup.classList.add('popup--open');
-    popup.classList.add('popup--opacity');
-
-    // hide heading + nav when popup is open
-    document.body.classList.add('hide');
+function delay(ms) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
   });
 }
 
-/*
+/**
+ * OPEN MODAL
+ */
 
-    Close Pop Up
-
-*/
-
-function closePopUp() {
-  popup.classList.remove('popup--opacity');
-  popupWrapper.classList.remove('popup--open');
+function fadeIn($element) {
+  $element.classList.add('visible');
   setTimeout(() => {
-    popup.classList.remove('popup--open');
-  }, 500);
-  setTimeout(() => {
-    loading.classList.remove('popup__overlay--visible');
-    success.classList.remove('popup__overlay--visible');
-    document.body.classList.remove('hide');
-  }, 750);
+    // must do on separate event loop for smooth transition
+    $element.classList.add('fade-in');
+  });
 }
 
-// Click X -> Close Pop Up
-const closeBtn = document.querySelector('.popup__exit-btn');
-closeBtn.addEventListener('click', closePopUp);
+function openModal() {
+  fadeIn($modalBackdrop);
+  fadeOut($main);
+}
 
-// Click outside of pop up -> close pop up
-const outsidePop = document.querySelector('.popup__wrapper');
-outsidePop.addEventListener('click', closePopUp);
+$modalStarters.forEach(($element) => {
+  $element.addEventListener('click', openModal);
+});
 
-/*
+/**
+ * CLOSE MODAL
+ */
 
-    DARK MODE
+function fadeOut($element, transitionTime = 500) {
+  $element.classList.remove('fade-in');
+  setTimeout(() => {
+    $element.classList.remove('visible');
+  }, transitionTime);
+}
 
-*/
 
-const toggleButton = document.querySelector('#btn__dark-mode');
+function closeModal() {
+  fadeOut($modalBackdrop);
+  setTimeout(() => {
+    fadeIn($main);
+  }, 500); // small delay before fading landing back in
+}
 
-toggleButton.addEventListener('click', () => {
+function handleClose(e) {
+  const exitButtonClick = e.target.classList.contains('modal__exit-btn');
+  const outsideModalClick = e.target.classList.contains('modal__backdrop');
+  if (!(exitButtonClick || outsideModalClick)) return;
+  closeModal();
+}
+
+$modalBackdrop.addEventListener('click', handleClose);
+
+/**
+ * DARK MODE
+ */
+
+$toggleDarkModeBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark');
 });
 
-/*
+/**
+ * CONTACT FORM
+ */
 
-    CONTACT FORM
+$contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  formData.append('service_id', 'service_66c3ltm');
+  formData.append('template_id', 'template_x9t7sqw');
+  formData.append('user_id', 'fF_O7kEQetQW4I_Lt');
 
-*/
-
-// Submit Contact Form
-
-contactForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  loading.classList.add('popup__overlay--visible');
-
-  emailjs
-    .sendForm('service_vbc5994', 'template_x9t7sqw', event.target, 'fF_O7kEQetQW4I_Lt')
-    .then(() => {
-      loading.classList.remove('popup__overlay--visible');
-      success.classList.add('popup__overlay--visible');
-      contactForm.reset();
+  try {
+    const response = await fetch("https://api.emailjs.com/api/v1.0/email/send-form", {
+      method: "POST",
+      body: formData
     })
-    .catch(() => {
-      loading.classList.remove('popup__overlay--visible');
-      alert(
-        'The email service is temporarily unavailable. Please contact me directly at jaden@bertinofamily.com'
-      );
-    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+
+    fadeIn($modalLoading);
+    await delay(1500);
+    fadeOut($modalLoading);
+    fadeIn($modalSuccess);
+    await delay(3000);
+    
+    $contactForm.reset();
+    fadeOut($modalSuccess);
+    fadeOut($modalBackdrop);
+    await delay(750)
+
+    fadeIn($main);
+  } catch (err) {
+    console.error(err);
+    alert(
+      `The email service is temporarily unavailable. Please contact me directly at jaden@bertinofamily.com`
+    );
+    fadeOut($modalLoading)
+    fadeOut($modalSuccess)
+    fadeOut($modalBackdrop)
+    await delay(750)
+    fadeIn($main)
+  }
 });
 
-/*
-
-  BACKGROUND DECORATIONS
-
-*/
-
+/**
+ * BACKGROUND DECORATIONS
+ */
 const moveFactor = 1 / 20;
 const rotateFactor = 10;
 const shapes = document.querySelectorAll('.shape');
@@ -116,6 +133,8 @@ document.body.addEventListener('mousemove', (event) => {
   for (let i = 0; i < shapes.length; i++) {
     const isOdd = i % 2 === 1;
     const direction = isOdd ? -1 : 1;
-    shapes[i].style.transform = `translate(${x * direction}px, ${y * direction}px) rotate(${x * rotateFactor}deg)`;
+    shapes[i].style.transform = `translate(${x * direction}px, ${y * direction}px) rotate(${
+      x * rotateFactor
+    }deg)`;
   }
 });

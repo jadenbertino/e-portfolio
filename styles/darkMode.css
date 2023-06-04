@@ -1,0 +1,66 @@
+.purple,
+.social__btn,
+.nav__logo--black,
+body {
+  transition: all 750ms ease;
+}
+
+body.dark {
+  background-color: #242424;
+}
+
+.dark .purple {
+  color: #f06449;
+}
+
+.dark .nav__links--anchor,
+.dark .header__title,
+.dark .header__para,
+.dark .section__title,
+.dark #btn__dark-mode {
+  color: white;
+}
+
+.dark .scroll__icon {
+  border-color: #fff;
+}
+
+.dark .scroll__icon:after {
+  background-color: #fff;
+}
+
+.dark .link__hover-effect--black::after {
+  background-color: #fff;
+}
+
+.dark .nav__logo--black {
+  filter: invert(100%);
+}
+
+.dark .social__btn,
+.dark .form__submit {
+  background-color: #f06449;
+}
+
+.dark .mail__icon {
+  color: #242424;
+}
+
+.dark .mail__btn {
+  background-color: #ffffff;
+}
+
+.dark .form__item--input:focus,
+.dark .form__submit {
+  border-color: #f06449;
+}
+
+.dark .form__submit:hover {
+  border-color: #fff;
+  background-color: transparent;
+}
+
+.dark .form__submit:active {
+  border-color: #f06449;
+  color: #f06449;
+}
