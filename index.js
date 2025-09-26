@@ -1,3 +1,6 @@
+// Redirect to jadenbertino.com on page load because this is deprecated
+window.location.href = 'https://jadenbertino.com';
+
 const $modalBackdrop = document.querySelector('.modal__backdrop');
 const $modalLoading = document.querySelector('.modal__overlay--loading');
 const $modalSuccess = document.querySelector('.modal__overlay--success');
